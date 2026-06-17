@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyful Effort</title>
+  <meta name="description" content="The platform for dharma centers and the practitioners they serve.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FAF8F5;
+      color: #2D2D2D;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero-logo {
+      max-width: 360px;
+      width: 80%;
+      margin-bottom: 3rem;
+    }
+
+    .hero-tagline {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #5A5A5A;
+      max-width: 500px;
+      font-style: italic;
+    }
+
+    .scroll-hint {
+      margin-top: 4rem;
+      opacity: 0.3;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-divider {
+      width: 40px;
+      height: 2px;
+      background-color: #C4860B;
+      margin: 0 auto 5rem auto;
+    }
+
+    /* What It Is */
+    .what-it-is {
+      text-align: center;
+    }
+
+    .what-it-is h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #1A1A1A;
+    }
+
+    .what-it-is p {
+      font-size: 1.1rem;
+      color: #4A4A4A;
+      max-width: 640px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .what-it-is p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Two Sides */
+    .two-sides {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .side {
+      padding: 2.5rem;
+      border: 1px solid #E8E4DE;
+      border-radius: 4px;
+      background: #FFFFFF;
+    }
+
+    .side-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C4860B;
+      margin-bottom: 1rem;
+    }
+
+    .side h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      color: #1A1A1A;
+    }
+
+    .side p {
+      font-size: 0.95rem;
+      color: #5A5A5A;
+    }
+
+    /* The Name */
+    .the-name {
+      text-align: center;
+    }
+
+    .the-name h2 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      color: #1A1A1A;
+    }
+
+    .the-name blockquote {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #4A4A4A;
+      max-width: 600px;
+      margin: 0 auto 1.5rem auto;
+      line-height: 1.8;
+    }
+
+    .the-name .sanskrit {
+      font-style: normal;
+      color: #C4860B;
+    }
+
+    .the-name p {
+      font-size: 1rem;
+      color: #5A5A5A;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Where We Are */
+    .where-we-are {
+      text-align: center;
+    }
+
+    .where-we-are h2 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      color: #1A1A1A;
+    }
+
+    .where-we-are p {
+      font-size: 1.05rem;
+      color: #4A4A4A;
+      max-width: 600px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #C4860B;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .contact-link:hover {
+      border-bottom-color: #C4860B;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      font-size: 0.8rem;
+      color: #AAA;
+    }
+
+    /* Responsive */
+    @media (max-width: 680px) {
+      html {
+        font-size: 16px;
+      }
+
+      .hero {
+        min-height: 90vh;
+        padding: 3rem 1.5rem;
+      }
+
+      .hero-logo {
+        max-width: 260px;
+      }
+
+      .hero-tagline {
+        font-size: 1.1rem;
+      }
+
+      .two-sides {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .side {
+        padding: 2rem;
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .what-it-is h2,
+      .the-name h2,
+      .where-we-are h2 {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="logo.png" alt="Joyful Effort" class="hero-logo">
+    <p class="hero-tagline">The platform for dharma centers and the practitioners they serve.</p>
+    <p class="scroll-hint">Scroll</p>
+  </section>
+
+  <!-- What It Is -->
+  <div class="section-divider"></div>
+  <section class="what-it-is">
+    <div class="container">
+      <h2>Building the infrastructure for dharma in the modern world.</h2>
+      <p>
+        One platform where centers manage retreats, registrations, lodging, and meals &mdash;
+        and practitioners discover teachings, find teachers, and deepen their practice.
+      </p>
+      <p>
+        We believe the operational work of running a dharma center is itself an act of practice.
+        It deserves tools built with that understanding.
+      </p>
+    </div>
+  </section>
+
+  <!-- Two Sides -->
+  <section>
+    <div class="container">
+      <div class="two-sides">
+        <div class="side">
+          <p class="side-label">For Centers</p>
+          <h3>Run your center, not your software.</h3>
+          <p>
+            A purpose-built operations platform. Events, registration, lodging, meals, payments,
+            check-in &mdash; designed for how dharma centers actually work. Not a generic booking tool.
+            Not a spreadsheet. Not five disconnected systems held together by email.
+          </p>
+        </div>
+        <div class="side">
+          <p class="side-label">For Practitioners</p>
+          <h3>Find your next retreat, teaching, or sitting.</h3>
+          <p>
+            A single place to discover retreats, teachings, and practice opportunities across your
+            lineage and beyond. Register, manage your bookings, and stay connected to the
+            communities that support your path.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Name -->
+  <div class="section-divider"></div>
+  <section class="the-name">
+    <div class="container">
+      <h2>Why &ldquo;Joyful Effort&rdquo;?</h2>
+      <blockquote>
+        <span class="sanskrit">V&#299;rya</span> &mdash; one of the six perfections in Mahayana Buddhism &mdash;
+        is the energy of delighting in what is good. Not the grind of obligation,
+        but the enthusiasm that comes from doing meaningful work.
+      </blockquote>
+      <p>
+        We chose this name because it describes both what we&rsquo;re building and how we want to build it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Where We Are -->
+  <div class="section-divider"></div>
+  <section class="where-we-are">
+    <div class="container">
+      <h2>Where we are</h2>
+      <p>
+        Joyful Effort is in active development, working with our first pilot centers
+        in New York, London, France, and India. The platform is real, substantial,
+        and being built in close partnership with the people who will use it daily.
+      </p>
+      <p>
+        If you run a dharma center and are curious about what we&rsquo;re building,
+        or if you&rsquo;d like to follow our progress, we&rsquo;d love to hear from you.
+      </p>
+      <a href="mailto:hello@joyfuleffort.com" class="contact-link">hello@joyfuleffort.com</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; 2026 Joyful Effort, LLC
+    </div>
+  </footer>
+
+</body>
+</html>
