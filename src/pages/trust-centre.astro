@@ -1,0 +1,23 @@
+---
+import Button from '@/components/Button.astro';
+import ComingSoon from '@/components/ComingSoon.astro';
+import Illustration from '@/components/Illustration.astro';
+import Section from '@/components/Section.astro';
+import { footer } from '@/content/site';
+import { trustCentre } from '@/content/trust-centre';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title={trustCentre.heading} description="The Joyful Effort Trust Centre is coming soon.">
+    <Section tone="light" innerClass="grid items-center gap-10 md:grid-cols-2 md:gap-16 md:min-h-[50vh]">
+        <div>
+            <h1 id="trust-centre" class="h1">{trustCentre.heading}</h1>
+            <ComingSoon text={trustCentre.comingSoon} class="mt-8 max-w-[28rem]" />
+            <p class="mt-10 max-w-[30rem]">{footer.contact.text}</p>
+            <Button href={`mailto:${footer.contact.email}`} variant="text" class="mt-2">
+                {footer.contact.email}
+            </Button>
+        </div>
+        <Illustration name="butter-lamp" class="mx-auto w-48 md:w-60" loading="eager" />
+    </Section>
+</BaseLayout>

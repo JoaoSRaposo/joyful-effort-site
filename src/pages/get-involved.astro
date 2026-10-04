@@ -1,0 +1,64 @@
+---
+import HandFrame from '@/components/HandFrame.astro';
+import Illustration from '@/components/Illustration.astro';
+import Section from '@/components/Section.astro';
+import SplitHero from '@/components/SplitHero.astro';
+import StoryRow from '@/components/StoryRow.astro';
+import TextBlock from '@/components/TextBlock.astro';
+import { getInvolved } from '@/content/get-involved';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    title="Get involved"
+    description="Support the work behind Lotus: help fund the project, share your centre’s experience or contribute relevant skills."
+>
+    <SplitHero heading={getInvolved.hero.heading} highlight="Lotus" paragraphs={getInvolved.hero.paragraphs}>
+        <HandFrame slot="media" offset variant={0} class="bg-ivory-warm">
+            <div class="flex aspect-[4/3] items-center justify-center p-10">
+                <Illustration name="volunteers" class="max-w-[16rem]" loading="eager" />
+            </div>
+        </HandFrame>
+    </SplitHero>
+
+    <StoryRow
+        tone="warm"
+        heading={getInvolved.financial.heading}
+        paragraphs={getInvolved.financial.paragraphs}
+        links={getInvolved.financial.links}
+        illustration="generosity"
+        variant={1}
+    />
+
+    <Section tone="navy">
+        <TextBlock
+            heading={getInvolved.sustainable.heading}
+            paragraphs={getInvolved.sustainable.paragraphs}
+            links={getInvolved.sustainable.links}
+            tone="ivory"
+            allTextLinks
+            class="max-w-[44rem]"
+        />
+    </Section>
+
+    <Section tone="light">
+        <p class="eyebrow">{getInvolved.participationLabel}</p>
+        <div class="mt-8 grid gap-8 md:grid-cols-2">
+            {
+                getInvolved.ways.map((way, index) => (
+                    <HandFrame variant={index}>
+                        <div class="flex h-full flex-col gap-6 p-7 md:p-10">
+                            <Illustration name={way.illustration} class="w-24 md:w-28" />
+                            <TextBlock
+                                heading={way.heading}
+                                paragraphs={way.paragraphs}
+                                links={[way.link]}
+                                size="h3"
+                            />
+                        </div>
+                    </HandFrame>
+                ))
+            }
+        </div>
+    </Section>
+</BaseLayout>

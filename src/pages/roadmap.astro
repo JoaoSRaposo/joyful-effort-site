@@ -1,0 +1,119 @@
+---
+import ComingSoon from '@/components/ComingSoon.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import FormField from '@/components/FormField.astro';
+import HandFrame from '@/components/HandFrame.astro';
+import Illustration from '@/components/Illustration.astro';
+import Section from '@/components/Section.astro';
+import SplitHero from '@/components/SplitHero.astro';
+import TextBlock from '@/components/TextBlock.astro';
+import { roadmap } from '@/content/roadmap';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const { form } = roadmap;
+---
+
+<BaseLayout
+    title="Roadmap and feedback"
+    description="The current development priorities for Lotus, and a place to tell us what would make the platform more useful for your team."
+>
+    <SplitHero heading={roadmap.hero.heading} highlight="Lotus" paragraphs={roadmap.hero.paragraphs}>
+        <HandFrame slot="media" offset variant={1} class="bg-ivory-warm">
+            <div class="flex aspect-[4/3] items-center justify-center p-10">
+                <Illustration name="event-planning" class="max-w-[16rem]" loading="eager" />
+            </div>
+        </HandFrame>
+    </SplitHero>
+
+    <Section tone="warm">
+        <TextBlock heading={roadmap.pilot.heading} paragraphs={[roadmap.pilot.intro]} class="max-w-[44rem]" />
+        <div class="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
+            {
+                roadmap.pilot.items.map((item, index) => (
+                    <HandFrame variant={index} class="bg-ivory-light">
+                        <article class="flex h-full flex-col gap-5 p-7 md:p-8">
+                            <Illustration name={item.illustration} class="w-20 md:w-24" />
+                            <h3 class="h3">{item.heading}</h3>
+                            <p>{item.text}</p>
+                        </article>
+                    </HandFrame>
+                ))
+            }
+        </div>
+    </Section>
+
+    <Section tone="light">
+        <div class="grid gap-10 md:grid-cols-3 md:gap-8">
+            <div>
+                <h2 id="in-development" class="h3">{roadmap.inDevelopment.heading}</h2>
+                <ComingSoon text={roadmap.inDevelopment.text} class="mt-6" variant={0} />
+            </div>
+            <div>
+                <h2 id="under-consideration" class="h3">{roadmap.underConsideration.heading}</h2>
+                <p class="mt-6">{roadmap.underConsideration.text}</p>
+            </div>
+            <div>
+                <h2 id="recent-progress" class="h3">{roadmap.recentProgress.heading}</h2>
+                <ComingSoon text={roadmap.recentProgress.text} class="mt-6" variant={2} />
+            </div>
+        </div>
+    </Section>
+
+    <Section tone="warm" id="feature-request">
+        <div class="grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
+            <div>
+                <TextBlock eyebrow={form.label} heading={form.heading} paragraphs={form.paragraphs} />
+                <Illustration name="communications" class="mt-8 hidden w-36 lg:block" />
+            </div>
+            <HandFrame variant={1} class="bg-ivory-light">
+                <div class="p-6 md:p-10">
+                    <ContactForm
+                        action="/api/feature-request"
+                        submitLabel={form.submit}
+                        confirmation={form.confirmation}
+                    >
+                        <fieldset>
+                            <legend class="text-lg font-semibold">{form.fields.nameAndEmail.label}</legend>
+                            <p id="name-email-hint" class="mt-1 text-base text-navy/80">
+                                {form.fields.nameAndEmail.hint}
+                            </p>
+                            <div class="mt-1 grid gap-4 sm:grid-cols-2">
+                                <FormField name="name" label="Name" required autocomplete="name" labelClass="text-base font-medium" />
+                                <FormField name="email" label="Email" type="email" required autocomplete="email" labelClass="text-base font-medium" />
+                            </div>
+                        </fieldset>
+                        <FormField
+                            name="organisation"
+                            label={form.fields.organisation.label}
+                            hint={form.fields.organisation.hint}
+                            required
+                            autocomplete="organization"
+                        />
+                        <FormField name="task" type="textarea" label={form.fields.task.label} hint={form.fields.task.hint} required />
+                        <FormField
+                            name="difficulty"
+                            type="textarea"
+                            label={form.fields.difficulty.label}
+                            hint={form.fields.difficulty.hint}
+                            required
+                        />
+                        <FormField
+                            name="improvement"
+                            type="textarea"
+                            label={form.fields.improvement.label}
+                            hint={form.fields.improvement.hint}
+                        />
+                    </ContactForm>
+                </div>
+            </HandFrame>
+        </div>
+    </Section>
+
+    <Section tone="light">
+        <TextBlock
+            heading={roadmap.howFeedbackInforms.heading}
+            paragraphs={[roadmap.howFeedbackInforms.text]}
+            class="max-w-[44rem]"
+        />
+    </Section>
+</BaseLayout>

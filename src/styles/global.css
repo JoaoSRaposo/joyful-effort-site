@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/600.css';
+
+/* Brand tokens — exact values from the design handoff (brand-tokens.css). */
+@theme {
+    --color-ivory-light: #fbf8f1;
+    --color-ivory-warm: #f4ebd9;
+    --color-navy: #14283f;
+    --color-coral: #ff705e;
+
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+
+    --container-content: 80rem;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        background-color: var(--color-ivory-light);
+        color: var(--color-navy);
+        font-family: var(--font-sans);
+        font-size: 1.0625rem;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    @media (min-width: 64rem) {
+        body {
+            font-size: 1.125rem;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+
+    :focus-visible {
+        outline: 3px solid var(--color-coral);
+        outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+}
+
+@layer components {
+    .wrap {
+        margin-inline: auto;
+        width: 100%;
+        max-width: var(--container-content);
+        padding-inline: 1.25rem;
+    }
+
+    @media (min-width: 48rem) {
+        .wrap {
+            padding-inline: 3rem;
+        }
+    }
+
+    @media (min-width: 80rem) {
+        .wrap {
+            padding-inline: 4rem;
+        }
+    }
+
+    .h1 {
+        font-size: clamp(2.375rem, 1.6rem + 3.2vw, 4.25rem);
+    }
+
+    .h2 {
+        font-size: clamp(1.875rem, 1.45rem + 1.7vw, 2.875rem);
+    }
+
+    .h3 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .eyebrow {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+    }
+
+    .prose-je > * + * {
+        margin-top: 1rem;
+    }
+
+    .hand-stroke {
+        pointer-events: none;
+        overflow: visible;
+    }
+}

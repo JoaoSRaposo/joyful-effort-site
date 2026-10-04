@@ -1,0 +1,54 @@
+---
+/**
+ * Link or button in the two styles from the concepts:
+ * `primary` — flat coral fill with navy text; `text` — label followed by a hand-drawn arrow.
+ */
+import Arrow from './Arrow.astro';
+
+interface Props {
+    href?: string;
+    variant?: 'primary' | 'text';
+    /** Text colour context for the `text` variant. */
+    tone?: 'navy' | 'ivory';
+    type?: 'submit' | 'button';
+    class?: string;
+    [key: string]: unknown;
+}
+
+const {
+    href,
+    variant = 'primary',
+    tone = 'navy',
+    type = 'button',
+    class: className = '',
+    ...attributes
+} = Astro.props;
+
+const classes = [
+    'group inline-flex min-h-12 items-center gap-2 font-medium transition-colors duration-200',
+    variant === 'primary' &&
+        'bg-coral px-6 py-3 text-navy hover:bg-[#ff8676] active:bg-[#f2604e] disabled:cursor-progress disabled:opacity-70',
+    variant === 'text' && 'py-3 underline-offset-[6px] hover:underline',
+    variant === 'text' && (tone === 'ivory' ? 'text-ivory-warm' : 'text-navy'),
+    className,
+];
+
+const isExternal = href?.startsWith('mailto:') || href?.startsWith('http');
+---
+
+{
+    href ? (
+        <a href={href} class:list={classes} {...attributes}>
+            <slot />
+            {variant === 'text' && (
+                <Arrow class="transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none" />
+            )}
+            {isExternal && href?.startsWith('http') && <span class="sr-only">(opens external site)</span>}
+        </a>
+    ) : (
+        <button type={type} class:list={classes} {...attributes}>
+            <slot />
+            {variant === 'text' && <Arrow />}
+        </button>
+    )
+}

@@ -1,0 +1,33 @@
+---
+/**
+ * One of the ten hand-drawn spot illustrations. Decorative by default (empty alt);
+ * pass `alt` when the illustration communicates content.
+ */
+import { Image } from 'astro:assets';
+import { type IllustrationName, illustration } from '@/lib/illustrations';
+
+interface Props {
+    name: IllustrationName | (string & {});
+    alt?: string;
+    class?: string;
+    width?: number;
+    loading?: 'lazy' | 'eager';
+}
+
+const { name, alt = '', class: className = '', width = 480, loading = 'lazy' } = Astro.props;
+
+/** Fill the container unless the caller sets an explicit width utility. */
+const hasExplicitWidth = /(^|\s)([a-z]+:)?w-/.test(className);
+---
+
+<Image
+    src={illustration(name)}
+    alt={alt}
+    width={width}
+    widths={[width / 2, width]}
+    sizes={`(min-width: 768px) ${width / 2}px, ${Math.round(width / 2.4)}px`}
+    format="webp"
+    quality={82}
+    loading={loading}
+    class:list={['h-auto object-contain', !hasExplicitWidth && 'w-full', className]}
+/>

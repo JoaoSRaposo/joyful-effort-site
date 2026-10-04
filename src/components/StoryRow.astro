@@ -1,0 +1,49 @@
+---
+/**
+ * Alternating image/text row (concept 03). `reverse` places the illustration on the right.
+ */
+import type { SiteLink } from '@/content/site';
+import HandFrame from './HandFrame.astro';
+import Illustration from './Illustration.astro';
+import Section from './Section.astro';
+import TextBlock from './TextBlock.astro';
+
+interface Props {
+    heading: string;
+    paragraphs?: string[];
+    links?: SiteLink[];
+    illustration: string;
+    reverse?: boolean;
+    tone?: 'light' | 'warm';
+    eyebrow?: string | null;
+    variant?: number;
+    id?: string;
+}
+
+const {
+    heading,
+    paragraphs = [],
+    links = [],
+    illustration,
+    reverse = false,
+    tone = 'light',
+    eyebrow = null,
+    variant = 0,
+    id,
+} = Astro.props;
+
+const panelTone = tone === 'light' ? 'bg-ivory-warm' : 'bg-ivory-light';
+---
+
+<Section tone={tone} id={id} innerClass="grid items-center gap-10 md:grid-cols-2 md:gap-12 lg:gap-20">
+    <div class:list={[reverse && 'md:order-2']}>
+        <HandFrame variant={variant} class={panelTone}>
+            <div class="flex aspect-[16/11] items-center justify-center p-8 md:p-10">
+                <Illustration name={illustration} class="max-h-full max-w-[15rem]" />
+            </div>
+        </HandFrame>
+    </div>
+    <TextBlock heading={heading} paragraphs={paragraphs} links={links} eyebrow={eyebrow}>
+        <slot />
+    </TextBlock>
+</Section>

@@ -1,0 +1,64 @@
+---
+import '@/styles/global.css';
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+
+interface Props {
+    title: string;
+    description: string;
+    noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+
+const siteName = 'Joyful Effort';
+const fullTitle =
+    title === siteName
+        ? `${siteName} — Technology in service of the Dharma`
+        : `${title} | ${siteName}`;
+const canonical = new URL(
+    Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/'),
+    Astro.site,
+);
+const ogImage = new URL('/og-image.png', Astro.site);
+---
+
+<!doctype html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{fullTitle}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        {noindex && <meta name="robots" content="noindex" />}
+        <meta name="theme-color" content="#FBF8F1" />
+        <meta name="facebook-domain-verification" content="zy1ynuqem60aea4fogkqpzrnsydsjy" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={ogImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <slot name="head" />
+    </head>
+    <body class="min-h-screen">
+        <a
+            href="#main"
+            class="sr-only z-50 bg-navy px-4 py-3 font-medium text-ivory-warm focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+        >
+            Skip to content
+        </a>
+        <Header />
+        <main id="main" tabindex="-1" class="outline-none">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>

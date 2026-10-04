@@ -1,0 +1,67 @@
+---
+/**
+ * Split hero (concept 01): text and calls to action on the left, framed media on the right
+ * at roughly 1:1. `highlight` adds the hand-drawn coral underline beneath one word of the
+ * heading; the heading text itself is unchanged.
+ */
+import type { SiteLink } from '@/content/site';
+import { slug } from '@/lib/slug';
+import LinkRow from './LinkRow.astro';
+
+interface Props {
+    heading: string;
+    highlight?: string;
+    paragraphs?: string[];
+    links?: SiteLink[];
+}
+
+const { heading, highlight, paragraphs = [], links = [] } = Astro.props;
+
+const highlightIndex = highlight ? heading.lastIndexOf(highlight) : -1;
+const before = highlightIndex >= 0 ? heading.slice(0, highlightIndex) : heading;
+const after =
+    highlightIndex >= 0 && highlight ? heading.slice(highlightIndex + highlight.length) : '';
+---
+
+<section class="bg-ivory-light text-navy" aria-labelledby={slug(heading)}>
+    <div
+        class="wrap grid items-center gap-10 pt-8 pb-14 md:gap-12 md:pt-12 md:pb-20 lg:grid-cols-2 lg:gap-16 lg:pt-16 lg:pb-24"
+    >
+        <div class="max-w-[36rem]">
+            <h1 id={slug(heading)} class="h1">
+                {before}
+                {
+                    highlightIndex >= 0 && (
+                        <span class="relative inline-block whitespace-nowrap">
+                            {highlight}
+                            <svg
+                                class="hand-stroke absolute -bottom-[0.14em] left-[-2%] h-[0.22em] w-[104%] text-coral"
+                                viewBox="0 0 200 12"
+                                preserveAspectRatio="none"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <path
+                                    d="M3 8.5 C 40 4.5, 95 3.2, 140 4.6 S 185 6.4, 197 5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="4"
+                                    stroke-linecap="round"
+                                    vector-effect="non-scaling-stroke"
+                                />
+                            </svg>
+                        </span>
+                    )
+                }
+                {after}
+            </h1>
+            <div class="prose-je mt-6 md:mt-8">
+                {paragraphs.map((paragraph) => <p set:html={paragraph} />)}
+            </div>
+            <LinkRow links={links} class="mt-8 md:mt-10" />
+        </div>
+        <div class="w-full">
+            <slot name="media" />
+        </div>
+    </div>
+</section>

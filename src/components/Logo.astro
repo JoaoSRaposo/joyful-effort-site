@@ -1,0 +1,22 @@
+---
+/**
+ * The handwritten Joyful Effort logo, traced from the original ink-on-paper artwork.
+ * The logo is artwork, not a font; colour follows `currentColor`.
+ */
+import LogoArtwork from '@/assets/logo/joyful-effort.svg';
+
+interface Props {
+    class?: string;
+    decorative?: boolean;
+}
+
+const { class: className = '', decorative = false } = Astro.props;
+---
+
+<LogoArtwork
+    class:list={['block h-auto', className]}
+    role={decorative ? undefined : 'img'}
+    aria-label={decorative ? undefined : 'Joyful Effort'}
+    aria-hidden={decorative ? 'true' : undefined}
+    focusable="false"
+/>

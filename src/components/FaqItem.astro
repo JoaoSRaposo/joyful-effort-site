@@ -1,0 +1,39 @@
+---
+/** One question and answer, using native <details> so it works without JavaScript. */
+import type { SiteLink } from '@/content/site';
+import HandRule from './HandRule.astro';
+import LinkRow from './LinkRow.astro';
+
+interface Props {
+    question: string;
+    answer: string[];
+    links?: SiteLink[];
+    variant?: number;
+}
+
+const { question, answer, links = [], variant = 0 } = Astro.props;
+---
+
+<div class="relative">
+    <HandRule variant={variant} class="top-0 left-0 text-navy" />
+    <details class="faq group">
+        <summary
+            class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg font-medium md:text-xl [&::-webkit-details-marker]:hidden"
+        >
+            <h3 class="font-medium tracking-normal">{question}</h3>
+            <span
+                class="relative h-5 w-5 shrink-0 transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none"
+                aria-hidden="true"
+            >
+                <span class="absolute top-1/2 left-0 h-[2px] w-full -translate-y-1/2 rounded bg-current"></span>
+                <span class="absolute top-0 left-1/2 h-full w-[2px] -translate-x-1/2 rounded bg-current"></span>
+            </span>
+        </summary>
+        <div class="max-w-[44rem] pb-7">
+            <div class="prose-je">
+                {answer.map((paragraph) => <p set:html={paragraph} />)}
+            </div>
+            <LinkRow links={links} allText class="mt-3" />
+        </div>
+    </details>
+</div>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joyfuleffort.com/sitemap-index.xml

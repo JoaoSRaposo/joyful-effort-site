@@ -1,0 +1,11 @@
+---
+import SubmittedPage from '@/components/SubmittedPage.astro';
+import { roadmap } from '@/content/roadmap';
+import { routes } from '@/content/site';
+---
+
+<SubmittedPage
+    title="Roadmap and feedback"
+    confirmation={roadmap.form.confirmation}
+    back={{ label: 'Roadmap and feedback', href: routes.roadmap }}
+/>

@@ -1,0 +1,33 @@
+---
+/** A single gently irregular divider line, positioned by the parent. */
+import { horizontalRulePaths, pick, verticalRulePaths } from '@/lib/hand-paths';
+
+interface Props {
+    orientation?: 'horizontal' | 'vertical';
+    variant?: number;
+    class?: string;
+}
+
+const { orientation = 'horizontal', variant = 0, class: className = '' } = Astro.props;
+const isHorizontal = orientation === 'horizontal';
+---
+
+<svg
+    class:list={[
+        'hand-stroke absolute',
+        isHorizontal ? 'h-[2px] w-full' : 'h-full w-[2px]',
+        className,
+    ]}
+    viewBox={isHorizontal ? '0 0 100 2' : '0 0 2 100'}
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+>
+    <path
+        d={isHorizontal ? pick(horizontalRulePaths, variant) : pick(verticalRulePaths, variant)}
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        vector-effect="non-scaling-stroke"></path>
+</svg>

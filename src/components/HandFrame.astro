@@ -1,0 +1,57 @@
+---
+/**
+ * Hand-drawn rectangular frame with an optional flat coral offset behind it.
+ * The decorative strokes ignore pointer events and are hidden from assistive technology.
+ * Background utilities (bg-*) passed in `class` are applied to the framed surface so the
+ * coral offset stays visible behind it rather than showing through it.
+ */
+import { framePaths, offsetPaths, pick } from '@/lib/hand-paths';
+
+interface Props {
+    variant?: number;
+    offset?: boolean;
+    /** Stroke colour class, e.g. text-navy or text-ivory-warm. */
+    stroke?: string;
+    class?: string;
+}
+
+const { variant = 0, offset = false, stroke = 'text-navy', class: className = '' } = Astro.props;
+
+const classes = className.split(/\s+/).filter(Boolean);
+const surfaceClasses = classes.filter((name) => name.startsWith('bg-'));
+const layoutClasses = classes.filter((name) => !name.startsWith('bg-'));
+---
+
+<div class:list={['relative', offset && 'mr-3 mb-3 md:mr-3.5 md:mb-3.5', layoutClasses]}>
+    {
+        offset && (
+            <svg
+                class="hand-stroke absolute inset-0 h-full w-full translate-x-2 translate-y-2 text-coral md:translate-x-3.5 md:translate-y-3.5"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+            >
+                <path d={pick(offsetPaths, variant)} fill="currentColor" />
+            </svg>
+        )
+    }
+    <div class:list={['relative h-full', surfaceClasses]}>
+        <slot />
+    </div>
+    <svg
+        class:list={['hand-stroke absolute inset-0 h-full w-full', stroke]}
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+    >
+        <path
+            d={pick(framePaths, variant)}
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            vector-effect="non-scaling-stroke"></path>
+    </svg>
+</div>

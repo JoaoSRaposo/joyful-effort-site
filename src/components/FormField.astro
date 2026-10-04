@@ -1,0 +1,64 @@
+---
+/** Labelled text input or textarea with an optional hint and a slot for server-side errors. */
+interface Props {
+    name: string;
+    label: string;
+    hint?: string;
+    type?: 'text' | 'email' | 'textarea';
+    required?: boolean;
+    autocomplete?: string;
+    maxlength?: number;
+    labelClass?: string;
+}
+
+const {
+    name,
+    label,
+    hint,
+    type = 'text',
+    required = false,
+    autocomplete,
+    maxlength = type === 'textarea' ? 5000 : 200,
+    labelClass = 'text-lg font-semibold',
+} = Astro.props;
+
+const id = `field-${name}`;
+const hintId = hint ? `${id}-hint` : undefined;
+const errorId = `${id}-error`;
+const describedBy = [hintId, errorId].filter(Boolean).join(' ');
+const controlClass =
+    'mt-3 block w-full border-2 border-navy bg-ivory-light px-4 py-3 text-navy placeholder:text-navy/50 focus:outline-none focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-coral aria-[invalid=true]:border-[#b3261e]';
+---
+
+<div class="form-field" data-field={name}>
+    <label for={id} class:list={['block', labelClass]}>
+        {label}
+        {required && <span class="sr-only"> (required)</span>}
+    </label>
+    {hint && <p id={hintId} class="mt-1 text-base text-navy/80">{hint}</p>}
+    {
+        type === 'textarea' ? (
+            <textarea
+                id={id}
+                name={name}
+                rows="5"
+                required={required}
+                maxlength={maxlength}
+                aria-describedby={describedBy}
+                class:list={[controlClass, 'min-h-36 resize-y']}
+            />
+        ) : (
+            <input
+                id={id}
+                name={name}
+                type={type}
+                required={required}
+                autocomplete={autocomplete}
+                maxlength={maxlength}
+                aria-describedby={describedBy}
+                class={controlClass}
+            />
+        )
+    }
+    <p id={errorId} class="mt-2 hidden text-base font-medium text-[#b3261e]" data-error-for={name}></p>
+</div>

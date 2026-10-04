@@ -1,0 +1,55 @@
+---
+/**
+ * Heading, paragraphs and calls to action. Paragraph strings are trusted copy
+ * from src/content and may contain inline <strong> markup from the source documents.
+ */
+import type { SiteLink } from '@/content/site';
+import { slug } from '@/lib/slug';
+import LinkRow from './LinkRow.astro';
+
+interface Props {
+    heading: string;
+    paragraphs?: string[];
+    links?: SiteLink[];
+    level?: 'h1' | 'h2' | 'h3';
+    /** Visual size, when it should differ from the semantic level. */
+    size?: 'h1' | 'h2' | 'h3';
+    eyebrow?: string | null;
+    tone?: 'navy' | 'ivory';
+    id?: string;
+    allTextLinks?: boolean;
+    class?: string;
+}
+
+const {
+    heading,
+    paragraphs = [],
+    links = [],
+    level = 'h2',
+    size = level,
+    eyebrow = null,
+    tone = 'navy',
+    id = slug(heading),
+    allTextLinks = false,
+    class: className = '',
+} = Astro.props;
+
+const Heading = level;
+const headingClass = { h1: 'h1', h2: 'h2', h3: 'h3' }[size];
+---
+
+<div class:list={['max-w-[38rem]', className]}>
+    {eyebrow && <p class="eyebrow mb-4">{eyebrow}</p>}
+    <Heading id={id} class:list={[headingClass, 'scroll-mt-28']}>{heading}</Heading>
+    {
+        paragraphs.length > 0 && (
+            <div class="prose-je mt-5 md:mt-6">
+                {paragraphs.map((paragraph) => (
+                    <p set:html={paragraph} />
+                ))}
+            </div>
+        )
+    }
+    <slot />
+    <LinkRow links={links} tone={tone} allText={allTextLinks} class="mt-7 md:mt-8" />
+</div>

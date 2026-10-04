@@ -1,0 +1,40 @@
+---
+/** Full-bleed page section on one of the three flat brand surfaces. */
+interface Props {
+    tone?: 'light' | 'warm' | 'navy';
+    id?: string;
+    labelledBy?: string;
+    class?: string;
+    innerClass?: string;
+    spacing?: 'default' | 'compact';
+}
+
+const {
+    tone = 'light',
+    id,
+    labelledBy,
+    class: className = '',
+    innerClass = '',
+    spacing = 'default',
+} = Astro.props;
+
+const tones = {
+    light: 'bg-ivory-light text-navy',
+    warm: 'bg-ivory-warm text-navy',
+    navy: 'bg-navy text-ivory-warm',
+};
+---
+
+<section
+    id={id}
+    aria-labelledby={labelledBy}
+    class:list={[
+        tones[tone],
+        spacing === 'default' ? 'py-12 md:py-18 lg:py-24' : 'py-10 md:py-14',
+        className,
+    ]}
+>
+    <div class:list={['wrap', innerClass]}>
+        <slot />
+    </div>
+</section>

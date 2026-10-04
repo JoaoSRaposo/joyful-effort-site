@@ -1,0 +1,52 @@
+---
+import ContactForm from '@/components/ContactForm.astro';
+import FormField from '@/components/FormField.astro';
+import HandFrame from '@/components/HandFrame.astro';
+import Illustration from '@/components/Illustration.astro';
+import Section from '@/components/Section.astro';
+import TextBlock from '@/components/TextBlock.astro';
+import { enquire } from '@/content/enquire';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    title="Enquire about Lotus"
+    description="Tell us about your centre, your programme and the systems you use."
+>
+    <Section tone="light" innerClass="grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
+        <div>
+            <TextBlock heading={enquire.heading} paragraphs={enquire.paragraphs} level="h1" />
+            <Illustration name="communications" class="mt-10 w-32 md:w-40" loading="eager" />
+        </div>
+        <HandFrame variant={0} offset class="bg-ivory-light">
+            <div class="p-6 md:p-10">
+                <ContactForm action="/api/enquiry" submitLabel={enquire.submit} confirmation={enquire.confirmation}>
+                    <div class="grid gap-8 sm:grid-cols-2 sm:gap-4">
+                        <FormField name="name" label={enquire.fields.name.label} required autocomplete="name" />
+                        <FormField
+                            name="email"
+                            label={enquire.fields.email.label}
+                            type="email"
+                            required
+                            autocomplete="email"
+                        />
+                    </div>
+                    <FormField
+                        name="organisation"
+                        label={enquire.fields.organisation.label}
+                        hint={enquire.fields.organisation.hint}
+                        required
+                        autocomplete="organization"
+                    />
+                    <FormField
+                        name="message"
+                        type="textarea"
+                        label={enquire.fields.message.label}
+                        hint={enquire.fields.message.hint}
+                        required
+                    />
+                </ContactForm>
+            </div>
+        </HandFrame>
+    </Section>
+</BaseLayout>

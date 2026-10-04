@@ -1,0 +1,11 @@
+---
+import SubmittedPage from '@/components/SubmittedPage.astro';
+import { enquire } from '@/content/enquire';
+import { routes } from '@/content/site';
+---
+
+<SubmittedPage
+    title={enquire.heading}
+    confirmation={enquire.confirmation}
+    back={{ label: 'Explore Lotus', href: routes.projectLotus }}
+/>

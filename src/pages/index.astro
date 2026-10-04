@@ -1,0 +1,117 @@
+---
+import FeatureCard from '@/components/FeatureCard.astro';
+import HandFrame from '@/components/HandFrame.astro';
+import Illustration from '@/components/Illustration.astro';
+import LinkRow from '@/components/LinkRow.astro';
+import Logo from '@/components/Logo.astro';
+import Section from '@/components/Section.astro';
+import SplitHero from '@/components/SplitHero.astro';
+import StoryRow from '@/components/StoryRow.astro';
+import TextBlock from '@/components/TextBlock.astro';
+import { home } from '@/content/home';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    title="Joyful Effort"
+    description="Joyful Effort works with Dharma centres to build technology that supports their work."
+>
+    <SplitHero
+        heading={home.hero.heading}
+        highlight="Dharma"
+        paragraphs={home.hero.paragraphs}
+        links={home.hero.links}
+    >
+        <HandFrame slot="media" offset variant={0} stroke="text-navy" class="bg-navy">
+            <!-- Reserved for the future logo-drawing animation; this is its reduced-motion still. -->
+            <div class="flex aspect-[4/3] items-center justify-center p-10 text-ivory-warm md:p-16">
+                <Logo class="w-full max-w-[22rem]" decorative />
+            </div>
+        </HandFrame>
+    </SplitHero>
+
+    <Section tone="warm" innerClass="grid gap-6 md:grid-cols-[1fr_1fr] md:gap-16 md:items-start">
+        <h2 id="more-time-for-the-work-that-matters" class="h2 max-w-[30rem]">
+            {home.moreTime.heading}
+        </h2>
+        <div class="prose-je max-w-[36rem] md:pt-2">
+            {home.moreTime.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+    </Section>
+
+    <Section tone="light">
+        <TextBlock
+            heading={home.introducingLotus.heading}
+            paragraphs={home.introducingLotus.paragraphs}
+            class="max-w-[44rem]"
+        />
+        <div class="mt-10 grid gap-10 md:mt-14 md:grid-cols-3 md:gap-8">
+            {
+                home.introducingLotus.features.map((feature, index) => (
+                    <FeatureCard
+                        heading={feature.heading}
+                        text={feature.text}
+                        illustration={feature.illustration}
+                        variant={index}
+                    />
+                ))
+            }
+        </div>
+        <LinkRow links={[home.introducingLotus.link]} allText class="mt-10" />
+    </Section>
+
+    <StoryRow
+        tone="warm"
+        heading={home.builtWithCentres.heading}
+        paragraphs={home.builtWithCentres.paragraphs}
+        links={home.builtWithCentres.links}
+        illustration="butter-lamp"
+        variant={1}
+    />
+
+    <StoryRow
+        tone="light"
+        reverse
+        heading={home.sustainable.heading}
+        paragraphs={home.sustainable.paragraphs}
+        links={home.sustainable.links}
+        illustration="generosity"
+        variant={2}
+    />
+
+    <Section tone="navy" innerClass="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+        <TextBlock
+            heading={home.trust.heading}
+            paragraphs={home.trust.paragraphs}
+            links={home.trust.links}
+            tone="ivory"
+        />
+        <HandFrame variant={2} stroke="text-ivory-warm">
+            <div class="flex aspect-[16/10] items-center justify-center p-8 md:p-12">
+                <div class="bg-ivory-light p-6 md:p-8">
+                    <Illustration name="prayer-book" class="w-36 md:w-44" />
+                </div>
+            </div>
+        </HandFrame>
+    </Section>
+
+    <Section tone="light">
+        <h2 id="help-shape-what-comes-next" class="h2 max-w-[40rem]">{home.shapeWhatsNext.heading}</h2>
+        <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-8">
+            {
+                [home.shapeWhatsNext.enquiry, home.shapeWhatsNext.support].map((block, index) => (
+                    <HandFrame variant={index + 1} class="bg-ivory-light">
+                        <div class="flex h-full flex-col gap-6 p-7 md:p-10">
+                            <Illustration
+                                name={index === 0 ? 'communications' : 'volunteers'}
+                                class="w-24 md:w-28"
+                            />
+                            <p class="max-w-[30rem]">{block.text}</p>
+                            <LinkRow links={[block.link]} allText={index === 1} class="mt-auto" />
+                        </div>
+                    </HandFrame>
+                ))
+            }
+        </div>
+    </Section>
+</BaseLayout>

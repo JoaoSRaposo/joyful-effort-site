@@ -1,0 +1,76 @@
+---
+import HandFrame from '@/components/HandFrame.astro';
+import Illustration from '@/components/Illustration.astro';
+import Section from '@/components/Section.astro';
+import SplitHero from '@/components/SplitHero.astro';
+import StoryRow from '@/components/StoryRow.astro';
+import TextBlock from '@/components/TextBlock.astro';
+import { about } from '@/content/about';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    title="About"
+    description="Joyful Effort works with Dharma centres to develop technology that supports their work and the communities they serve."
+>
+    <SplitHero heading={about.hero.heading} highlight="Dharma" paragraphs={about.hero.paragraphs}>
+        <HandFrame slot="media" offset variant={1} class="bg-ivory-warm">
+            <div class="flex aspect-[4/3] items-center justify-center p-10">
+                <Illustration name="butter-lamp" class="max-w-[15rem]" loading="eager" />
+            </div>
+        </HandFrame>
+    </SplitHero>
+
+    <Section tone="warm" innerClass="grid gap-6 md:grid-cols-2 md:gap-16 md:items-start">
+        <h2 id="why-we-are-here" class="h2">{about.whyWeAreHere.heading}</h2>
+        <div class="prose-je max-w-[36rem] md:pt-2">
+            {about.whyWeAreHere.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+    </Section>
+
+    <StoryRow
+        heading={about.firstProject.heading}
+        paragraphs={about.firstProject.paragraphs}
+        links={about.firstProject.links}
+        illustration="laptop-admin"
+        variant={0}
+    />
+
+    <Section tone="navy">
+        <TextBlock heading={about.howWeWork.heading} paragraphs={about.howWeWork.paragraphs} tone="ivory" class="max-w-[44rem]" />
+    </Section>
+
+    <Section tone="light">
+        <p class="eyebrow">{about.peopleLabel}</p>
+        <div class="mt-8 grid gap-12 md:grid-cols-2 md:gap-16">
+            <div class="flex flex-col gap-6">
+                <Illustration name="volunteers" class="w-28 md:w-32" />
+                <TextBlock heading={about.team.heading} paragraphs={about.team.paragraphs} />
+            </div>
+            <div class="flex flex-col gap-6">
+                <Illustration name="meditation" class="w-28 md:w-32" />
+                <TextBlock heading={about.centres.heading} paragraphs={about.centres.paragraphs} />
+            </div>
+        </div>
+    </Section>
+
+    <StoryRow
+        tone="warm"
+        reverse
+        id="funding"
+        heading={about.funding.heading}
+        paragraphs={about.funding.paragraphs}
+        links={about.funding.links}
+        illustration="generosity"
+        variant={2}
+    />
+
+    <Section tone="light">
+        <TextBlock
+            heading={about.talkToUs.heading}
+            paragraphs={about.talkToUs.paragraphs}
+            links={about.talkToUs.links}
+            class="max-w-[44rem]"
+        />
+    </Section>
+</BaseLayout>

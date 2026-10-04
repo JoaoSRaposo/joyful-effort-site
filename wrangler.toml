@@ -1,0 +1,7 @@
+name = "joyful-effort-website"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "dist"
+
+[vars]
+FORM_TO_EMAIL = "hello@joyfuleffort.com"
+FORM_FROM_EMAIL = "Joyful Effort website <website@joyfuleffort.com>"

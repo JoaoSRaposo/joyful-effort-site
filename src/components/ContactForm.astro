@@ -1,0 +1,61 @@
+---
+/**
+ * Progressive-enhancement form shell posting to a Cloudflare Pages Function.
+ * Without JavaScript it submits normally and the function redirects to a confirmation page.
+ * With JavaScript it submits via fetch and only shows the confirmation after a 2xx response.
+ */
+import { formStatus } from '@/content/forms';
+import Button from './Button.astro';
+import HandFrame from './HandFrame.astro';
+
+interface Props {
+    action: string;
+    submitLabel: string;
+    confirmation: string;
+    id?: string;
+}
+
+const { action, submitLabel, confirmation, id } = Astro.props;
+const honeypotId = `${action.replace(/[^a-z0-9]+/gi, '-')}-website`;
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '1x00000000000000000000AA';
+---
+
+<div data-ajax-form-root id={id}>
+    <form
+        action={action}
+        method="post"
+        class="space-y-8"
+        data-ajax-form
+        data-messages={JSON.stringify(formStatus)}
+        novalidate
+    >
+        <slot />
+
+        <!-- Honeypot: hidden from people and assistive technology, filled only by bots. -->
+        <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+            <label for={honeypotId}>Website</label>
+            <input id={honeypotId} type="text" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <input type="hidden" name="started_at" value="" data-started-at />
+
+        <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" data-size="flexible"></div>
+
+        <p class="hidden font-medium text-[#b3261e]" role="alert" data-form-error></p>
+
+        <Button type="submit" data-submit>{submitLabel}</Button>
+    </form>
+
+    <div class="hidden" data-form-success tabindex="-1">
+        <HandFrame variant={2} class="bg-ivory-light">
+            <p class="px-7 py-10 text-xl font-medium md:px-10 md:text-2xl" role="status">{confirmation}</p>
+        </HandFrame>
+    </div>
+</div>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+    import { enhanceForms } from '@/scripts/forms';
+
+    enhanceForms();
+</script>

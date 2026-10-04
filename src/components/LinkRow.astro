@@ -1,0 +1,30 @@
+---
+/** A row of calls to action: the first is a coral button, the rest are text links. */
+import type { SiteLink } from '@/content/site';
+import Button from './Button.astro';
+
+interface Props {
+    links: SiteLink[];
+    tone?: 'navy' | 'ivory';
+    allText?: boolean;
+    class?: string;
+}
+
+const { links, tone = 'navy', allText = false, class: className = '' } = Astro.props;
+---
+
+{
+    links.length > 0 && (
+        <div class:list={['flex flex-wrap items-center gap-x-8 gap-y-3', className]}>
+            {links.map((link, index) => (
+                <Button
+                    href={link.href}
+                    variant={index === 0 && !allText ? 'primary' : 'text'}
+                    tone={tone}
+                >
+                    {link.label}
+                </Button>
+            ))}
+        </div>
+    )
+}

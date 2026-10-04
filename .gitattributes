@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.png binary
+*.webp binary
+# Keep the file byte-identical to the original upload.
+public/zy1ynuqem60aea4fogkqpzrnsydsjy.html -text

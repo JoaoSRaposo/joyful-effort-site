@@ -1,0 +1,82 @@
+---
+/**
+ * Hand-drawn footer (concept 02 structure): brand panel at left, ruled 2×2 link grid at right,
+ * slim legal row below. Navy strokes and text on warm ivory. Shared dividers are drawn once.
+ */
+import { footer } from '@/content/site';
+import Arrow from './Arrow.astro';
+import HandFrame from './HandFrame.astro';
+import HandRule from './HandRule.astro';
+import Logo from './Logo.astro';
+
+const tiles = [
+    ...footer.groups.map((group) => ({ heading: group.heading, links: group.links })),
+    {
+        heading: footer.contact.heading,
+        text: footer.contact.text,
+        links: [{ label: footer.contact.email, href: `mailto:${footer.contact.email}` }],
+    },
+];
+---
+
+<footer class="bg-ivory-warm text-navy">
+    <div class="wrap pt-12 pb-8 md:pt-16 md:pb-10">
+        <HandFrame variant={1}>
+            <div class="grid lg:grid-cols-[5fr_7fr]">
+                <div class="p-6 md:p-10">
+                    <a href="/" class="block w-[8.5rem] md:w-[10rem]">
+                        <Logo />
+                    </a>
+                    <p class="sr-only">{footer.brandName}</p>
+                    <p class="mt-6 text-xl font-semibold md:text-2xl">{footer.tagline}</p>
+                    <p class="mt-3 max-w-[26rem]">{footer.introduction}</p>
+                </div>
+
+                <nav aria-label="Footer" class="relative grid sm:grid-cols-2">
+                    <HandRule class="top-0 left-0 lg:hidden" variant={0} />
+                    <HandRule orientation="vertical" class="top-0 left-0 hidden lg:block" variant={1} />
+                    {
+                        tiles.map((tile, index) => (
+                            <div class="footer-tile relative p-6 md:p-8">
+                                {index > 0 && (
+                                    <HandRule
+                                        variant={index}
+                                        class:list={['top-0 left-0', index === 1 && 'sm:hidden']}
+                                    />
+                                )}
+                                {index % 2 === 1 && (
+                                    <HandRule
+                                        orientation="vertical"
+                                        variant={index}
+                                        class="top-0 left-0 hidden sm:block"
+                                    />
+                                )}
+                                <h2 class="text-lg font-semibold tracking-normal">{tile.heading}</h2>
+                                {'text' in tile && tile.text && <p class="mt-3 text-base">{tile.text}</p>}
+                                <ul class="mt-3 space-y-0.5">
+                                    {tile.links.map((link) => (
+                                        <li>
+                                            <a
+                                                href={link.href}
+                                                class="group inline-flex min-h-11 items-center gap-2 text-base underline-offset-[5px] hover:underline"
+                                            >
+                                                {link.label}
+                                                <Arrow class="h-[0.8em] opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transform-none" />
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
+                    }
+                </nav>
+            </div>
+        </HandFrame>
+
+        <div class="relative mt-8 pt-6 text-sm">
+            <HandRule class="top-0 left-0" variant={1} />
+            <p>{footer.copyright}</p>
+            <p class="mt-1">{footer.registration}</p>
+        </div>
+    </div>
+</footer>
