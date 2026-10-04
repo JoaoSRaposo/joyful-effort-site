@@ -73,6 +73,7 @@ export const footer = {
         text: 'Have a question about Joyful Effort or a possible collaboration? Get in touch.',
         email: contactEmail,
     },
-    copyright: '© 2026 Joyful Effort LLC. All rights reserved.',
-    registration: 'Joyful Effort LLC is registered in Virginia, United States.',
+    copyright: '© 2026 Joyful Effort, LLC. All rights reserved.',
+    registration: 'Joyful Effort, LLC is registered in Virginia, United States.',
+    entityNumber: 'Virginia entity number: 12027020',
 };
