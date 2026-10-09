@@ -6,6 +6,8 @@
 export interface SiteLink {
     label: string;
     href: string;
+    /** Sub-pages shown in a dropdown under this navigation item. */
+    children?: SiteLink[];
 }
 
 export const contactEmail = 'hello@joyfuleffort.com';
@@ -26,6 +28,7 @@ export const routes = {
     featureRequest: '/roadmap#feature-request',
     trustCentre: '/trust-centre',
     getInvolved: '/get-involved',
+    centreEnquiry: '/get-involved/centre-enquiry',
     enquire: '/enquire',
 } as const;
 
@@ -33,7 +36,15 @@ export const primaryNavigation: SiteLink[] = [
     { label: 'About', href: routes.about },
     { label: 'Project Lotus', href: routes.projectLotus },
     { label: 'Trust Centre', href: routes.trustCentre },
-    { label: 'Get Involved', href: routes.getInvolved },
+    {
+        label: 'Get Involved',
+        href: routes.getInvolved,
+        // PROPOSED sub-menu labels — need Paul's sign-off.
+        children: [
+            { label: 'Ways to get involved', href: routes.getInvolved },
+            { label: 'Centre enquiry form', href: routes.centreEnquiry },
+        ],
+    },
 ];
 
 export const primaryButton: SiteLink = { label: 'Enquire about Lotus', href: routes.enquire };
@@ -50,6 +61,7 @@ export const footer = {
                 { label: 'About Joyful Effort', href: routes.about },
                 { label: 'Meet the team', href: routes.team },
                 { label: 'Get involved', href: routes.getInvolved },
+                { label: 'Centre enquiry form', href: routes.centreEnquiry },
             ],
         },
         {

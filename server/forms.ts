@@ -17,6 +17,8 @@ export interface FieldRule {
     required?: boolean;
     email?: boolean;
     maxLength?: number;
+    /** Checkbox group: every submitted value must be one of these, and the email shows their labels. */
+    options?: { value: string; label: string }[];
 }
 
 export interface FormConfig {
@@ -182,7 +184,21 @@ export async function handleFormSubmission(
         return respondSuccess(request, config);
     }
 
-    const values = Object.fromEntries(config.fields.map((field) => [field.name, read(field.name)]));
+    const readOptions = (field: FieldRule): string => {
+        const labels = new Map(field.options?.map((option) => [option.value, option.label]));
+
+        return formData
+            .getAll(field.name)
+            .flatMap((value) => (typeof value === 'string' ? (labels.get(value) ?? []) : []))
+            .join(', ');
+    };
+
+    const values = Object.fromEntries(
+        config.fields.map((field) => [
+            field.name,
+            field.options ? readOptions(field) : read(field.name),
+        ]),
+    );
     const errors = validate(values, config.fields);
 
     if (Object.keys(errors).length > 0) {

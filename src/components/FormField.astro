@@ -4,8 +4,11 @@ interface Props {
     name: string;
     label: string;
     hint?: string;
-    type?: 'text' | 'email' | 'textarea';
+    type?: 'text' | 'email' | 'url' | 'textarea';
     required?: boolean;
+    /** Marks an optional field next to its label. */
+    optional?: boolean;
+    placeholder?: string;
     autocomplete?: string;
     maxlength?: number;
     labelClass?: string;
@@ -17,6 +20,8 @@ const {
     hint,
     type = 'text',
     required = false,
+    optional = false,
+    placeholder,
     autocomplete,
     maxlength = type === 'textarea' ? 5000 : 200,
     labelClass = 'text-lg font-semibold',
@@ -34,6 +39,7 @@ const controlClass =
     <label for={id} class:list={['block', labelClass]}>
         {label}
         {required && <span class="sr-only"> (required)</span>}
+        {optional && <span class="ml-2 text-base font-normal text-navy/70">Optional</span>}
     </label>
     {hint && <p id={hintId} class="mt-1 text-base text-navy/80">{hint}</p>}
     {
@@ -43,6 +49,7 @@ const controlClass =
                 name={name}
                 rows="5"
                 required={required}
+                placeholder={placeholder}
                 maxlength={maxlength}
                 aria-describedby={describedBy}
                 class:list={[controlClass, 'min-h-36 resize-y']}
@@ -54,6 +61,7 @@ const controlClass =
                 type={type}
                 required={required}
                 autocomplete={autocomplete}
+                placeholder={placeholder}
                 maxlength={maxlength}
                 aria-describedby={describedBy}
                 class={controlClass}
