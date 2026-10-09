@@ -1,5 +1,5 @@
 ---
-import { primaryButton, primaryNavigation, routes } from '@/content/site';
+import { primaryButton, primaryNavigation, routes, type SiteLink } from '@/content/site';
 import HandFrame from './HandFrame.astro';
 import Logo from './Logo.astro';
 
@@ -7,6 +7,10 @@ const currentPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '')
 
 function isCurrent(href: string): boolean {
     return currentPath === href;
+}
+
+function isCurrentSection(link: SiteLink): boolean {
+    return link.children?.some((child) => isCurrent(child.href)) ?? false;
 }
 ---
 
@@ -21,13 +25,44 @@ function isCurrent(href: string): boolean {
                 {
                     primaryNavigation.map((link) => (
                         <li>
-                            <a
-                                href={link.href}
-                                aria-current={isCurrent(link.href) ? 'page' : undefined}
-                                class="inline-flex min-h-12 items-center font-medium underline-offset-[6px] hover:underline aria-[current=page]:underline aria-[current=page]:decoration-coral aria-[current=page]:decoration-2"
-                            >
-                                {link.label}
-                            </a>
+                            {link.children ? (
+                                <details class="nav-dropdown relative" data-nav-dropdown>
+                                    <summary
+                                        data-current={isCurrentSection(link) ? 'true' : undefined}
+                                        class="inline-flex min-h-12 cursor-pointer list-none items-center gap-1.5 font-medium underline-offset-[6px] hover:underline data-[current=true]:underline data-[current=true]:decoration-coral data-[current=true]:decoration-2 [&::-webkit-details-marker]:hidden"
+                                    >
+                                        {link.label}
+                                        <svg class="chevron h-2.5 w-3.5 transition-transform duration-200" viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false">
+                                            <path d="M1.5 2.2 C 4 4.6, 5.6 6.4, 7.1 8 C 8.8 6.2, 10.6 4.4, 12.6 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                        </svg>
+                                    </summary>
+                                    <div class="absolute top-full left-1/2 z-50 mt-2 w-64 -translate-x-1/2">
+                                        <HandFrame variant={1} class="bg-ivory-light">
+                                            <ul class="flex flex-col p-2">
+                                                {link.children.map((child) => (
+                                                    <li>
+                                                        <a
+                                                            href={child.href}
+                                                            aria-current={isCurrent(child.href) ? 'page' : undefined}
+                                                            class="flex min-h-12 items-center px-4 font-medium underline-offset-[6px] hover:underline aria-[current=page]:underline aria-[current=page]:decoration-coral aria-[current=page]:decoration-2"
+                                                        >
+                                                            {child.label}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </HandFrame>
+                                    </div>
+                                </details>
+                            ) : (
+                                <a
+                                    href={link.href}
+                                    aria-current={isCurrent(link.href) ? 'page' : undefined}
+                                    class="inline-flex min-h-12 items-center font-medium underline-offset-[6px] hover:underline aria-[current=page]:underline aria-[current=page]:decoration-coral aria-[current=page]:decoration-2"
+                                >
+                                    {link.label}
+                                </a>
+                            )}
                         </li>
                     ))
                 }
@@ -57,13 +92,32 @@ function isCurrent(href: string): boolean {
                             {
                                 primaryNavigation.map((link) => (
                                     <li>
-                                        <a
-                                            href={link.href}
-                                            aria-current={isCurrent(link.href) ? 'page' : undefined}
-                                            class="flex min-h-14 items-center px-3 text-xl font-medium aria-[current=page]:underline aria-[current=page]:decoration-coral aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-[6px]"
-                                        >
-                                            {link.label}
-                                        </a>
+                                        {link.children ? (
+                                            <>
+                                                <p class="flex min-h-14 items-center px-3 text-xl font-medium">{link.label}</p>
+                                                <ul class="mb-2 ml-3 border-l-2 border-navy/15 pl-3">
+                                                    {link.children.map((child) => (
+                                                        <li>
+                                                            <a
+                                                                href={child.href}
+                                                                aria-current={isCurrent(child.href) ? 'page' : undefined}
+                                                                class="flex min-h-12 items-center px-3 text-lg font-medium aria-[current=page]:underline aria-[current=page]:decoration-coral aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-[6px]"
+                                                            >
+                                                                {child.label}
+                                                            </a>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </>
+                                        ) : (
+                                            <a
+                                                href={link.href}
+                                                aria-current={isCurrent(link.href) ? 'page' : undefined}
+                                                class="flex min-h-14 items-center px-3 text-xl font-medium aria-[current=page]:underline aria-[current=page]:decoration-coral aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-[6px]"
+                                            >
+                                                {link.label}
+                                            </a>
+                                        )}
                                     </li>
                                 ))
                             }
@@ -93,11 +147,39 @@ function isCurrent(href: string): boolean {
     .mobile-menu[open] .menu-open {
         display: none;
     }
+
+    .nav-dropdown[open] .chevron {
+        transform: rotate(180deg);
+    }
 </style>
 
 <script>
     const header = document.querySelector<HTMLElement>('[data-header]');
     const menu = document.querySelector<HTMLDetailsElement>('[data-mobile-menu]');
+    const dropdowns = document.querySelectorAll<HTMLDetailsElement>('[data-nav-dropdown]');
+
+    for (const dropdown of dropdowns) {
+        dropdown.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && dropdown.open) {
+                dropdown.open = false;
+                dropdown.querySelector('summary')?.focus();
+            }
+        });
+
+        dropdown.addEventListener('focusout', (event) => {
+            if (!dropdown.contains(event.relatedTarget as Node | null)) {
+                dropdown.open = false;
+            }
+        });
+    }
+
+    document.addEventListener('click', (event) => {
+        for (const dropdown of dropdowns) {
+            if (dropdown.open && !dropdown.contains(event.target as Node)) {
+                dropdown.open = false;
+            }
+        }
+    });
 
     if (header) {
         const onScroll = (): void => {

@@ -1,0 +1,35 @@
+---
+/** Fieldset of checkboxes for a multiple-choice question, styled to match FormField. */
+import type { FormOption } from '@/content/centre-enquiry';
+
+interface Props {
+    name: string;
+    legend: string;
+    hint?: string;
+    options: FormOption[];
+}
+
+const { name, legend, hint, options } = Astro.props;
+
+const hintId = hint ? `field-${name}-hint` : undefined;
+---
+
+<fieldset class="form-field" aria-describedby={hintId} data-field={name}>
+    <legend class="text-lg font-semibold">{legend}</legend>
+    {hint && <p id={hintId} class="mt-1 text-base text-navy/80">{hint}</p>}
+    <div class="mt-3 grid gap-x-6 gap-y-1 sm:grid-cols-2">
+        {
+            options.map((option) => (
+                <label class="flex min-h-11 cursor-pointer items-start gap-3 py-1.5">
+                    <input
+                        type="checkbox"
+                        name={name}
+                        value={option.value}
+                        class="mt-0.5 size-5 shrink-0 cursor-pointer accent-navy focus:outline-none focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-coral"
+                    />
+                    <span>{option.label}</span>
+                </label>
+            ))
+        }
+    </div>
+</fieldset>

@@ -1,0 +1,100 @@
+---
+import CheckboxGroup from '@/components/CheckboxGroup.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import FormField from '@/components/FormField.astro';
+import HandFrame from '@/components/HandFrame.astro';
+import Illustration from '@/components/Illustration.astro';
+import Section from '@/components/Section.astro';
+import TextBlock from '@/components/TextBlock.astro';
+import { centreEnquiry } from '@/content/centre-enquiry';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const { fields } = centreEnquiry;
+---
+
+<BaseLayout
+    title={centreEnquiry.heading}
+    description="Tell us about your centre, what’s working well and where you could use some support."
+>
+    <Section tone="light" innerClass="grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
+        <div>
+            <TextBlock
+                eyebrow={centreEnquiry.eyebrow}
+                heading={centreEnquiry.heading}
+                paragraphs={centreEnquiry.paragraphs}
+                level="h1"
+                size="h2"
+            />
+            <Illustration name="meditation" class="mt-10 w-32 md:w-40" loading="eager" />
+        </div>
+        <HandFrame variant={0} offset class="bg-ivory-light">
+            <div class="p-6 md:p-10">
+                <ContactForm
+                    action="/api/centre-enquiry"
+                    submitLabel={centreEnquiry.submit}
+                    confirmation={centreEnquiry.confirmation}
+                >
+                    <div class="grid gap-8 sm:grid-cols-2 sm:gap-4">
+                        <FormField
+                            name="centre_name"
+                            label={fields.centreName.label}
+                            required
+                            autocomplete="organization"
+                        />
+                        <FormField name="country" label={fields.country.label} required autocomplete="country-name" />
+                    </div>
+                    <FormField
+                        name="website_url"
+                        type="url"
+                        label={fields.websiteUrl.label}
+                        optional
+                        autocomplete="url"
+                        maxlength={500}
+                    />
+                    <div class="grid gap-8 sm:grid-cols-2 sm:gap-4">
+                        <FormField name="contact_name" label={fields.contactName.label} required autocomplete="name" />
+                        <FormField
+                            name="role"
+                            label={fields.role.label}
+                            optional
+                            autocomplete="organization-title"
+                        />
+                    </div>
+                    <FormField name="email" type="email" label={fields.email.label} required autocomplete="email" />
+                    <CheckboxGroup
+                        name="centre_types"
+                        legend={fields.centreTypes.label}
+                        hint={fields.centreTypes.hint}
+                        options={fields.centreTypes.options}
+                    />
+                    <CheckboxGroup
+                        name="areas_of_interest"
+                        legend={fields.areasOfInterest.label}
+                        hint={fields.areasOfInterest.hint}
+                        options={fields.areasOfInterest.options}
+                    />
+                    <CheckboxGroup
+                        name="current_tools"
+                        legend={fields.currentTools.label}
+                        hint={fields.currentTools.hint}
+                        options={fields.currentTools.options}
+                    />
+                    <FormField
+                        name="message"
+                        type="textarea"
+                        label={fields.message.label}
+                        placeholder={fields.message.placeholder}
+                        optional
+                    />
+                    <div class="prose-je">
+                        {centreEnquiry.closing.map((paragraph) => <p>{paragraph}</p>)}
+                    </div>
+                </ContactForm>
+            </div>
+        </HandFrame>
+    </Section>
+
+    <Section tone="warm">
+        <TextBlock heading={centreEnquiry.behind.heading} paragraphs={centreEnquiry.behind.paragraphs} />
+    </Section>
+</BaseLayout>
