@@ -12,6 +12,6 @@ interface Props {
 const { text, tone = 'warm', variant = 1, class: className = '' } = Astro.props;
 ---
 
-<HandFrame variant={variant} class:list={[tone === 'warm' ? 'bg-ivory-warm' : 'bg-ivory-light', className]}>
+<HandFrame variant={variant} class:list={[tone === 'warm' ? 'bg-sunshine' : 'bg-ivory-light', className]}>
     <p class="px-8 py-10 text-center text-xl font-medium md:py-14 md:text-2xl">{text}</p>
 </HandFrame>
