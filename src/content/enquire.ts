@@ -1,13 +1,13 @@
 /**
  * Enquiry form copy.
  * PROPOSED — no enquiry-form document has been supplied yet. The intro reuses approved copy
- * from Project Lotus ("Getting started") and the Homepage ("Help shape what comes next");
+ * from Project Joyma ("Getting started") and the Homepage ("Help shape what comes next");
  * field labels and the confirmation message need Paul's sign-off.
  */
 export const enquire = {
-    heading: 'Enquire about Lotus',
+    heading: 'Enquire about Joyma',
     paragraphs: [
-        'Tell us about your centre, your programme and the systems you use. This gives us a starting point for discussing how Lotus can fit your needs.',
+        'Tell us about your centre, your programme and the systems you use. This gives us a starting point for discussing how Joyma can fit your needs.',
     ],
     fields: {
         name: { label: 'Your name' },
@@ -21,6 +21,6 @@ export const enquire = {
             hint: 'Tell us about your programme, the systems you use and what you would like to make easier for your team.',
         },
     },
-    submit: 'Enquire about Lotus',
+    submit: 'Enquire about Joyma',
     confirmation: 'Thank you for getting in touch. Your enquiry has been sent.',
 };

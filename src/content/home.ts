@@ -2,31 +2,31 @@
  * Homepage copy — verbatim from JE_Website_01_Homepage_Copy_v01.
  * Paragraphs may contain inline <strong> markup from the source document.
  */
-import { routes } from './site';
+import { joymaSite, routes } from './site';
 
 export const home = {
     hero: {
         heading: 'Technology in service of the Dharma',
         paragraphs: [
             'Joyful Effort works with Dharma centres to build technology that supports their work.',
-            'Our first project, <strong>Lotus</strong>, brings centre administration and the discovery of teachings into one platform. We’re developing it to make everyday tasks easier for centre teams and help more people find the teachings and communities that support their practice.',
+            'Our first project, <strong>Joyma</strong>, brings centre administration and the discovery of teachings into one platform. We’re developing it to make everyday tasks easier for centre teams and help more people find the teachings and communities that support their practice.',
         ],
         links: [
-            { label: 'Explore Project Lotus', href: routes.projectLotus },
-            { label: 'Enquire about Lotus', href: routes.enquire },
+            { label: 'Explore Project Joyma', href: routes.projectJoyma },
+            { label: 'Enquire about Joyma', href: routes.enquire },
         ],
     },
     moreTime: {
         heading: 'More time for the work that matters',
         paragraphs: [
             'Running a Dharma centre takes care, dedication and a great deal of administration. Teams often work across disconnected systems, adapting software designed for other industries. Essential knowledge can sit with just one person, making handovers difficult and leaving others unsure where to start.',
-            'We’re building Lotus around the needs of the people doing this work, with the aim of reducing repetitive tasks and making it easier to share responsibility.',
+            'We’re building Joyma around the needs of the people doing this work, with the aim of reducing repetitive tasks and making it easier to share responsibility.',
         ],
     },
-    introducingLotus: {
-        heading: 'Introducing Project Lotus',
+    introducingJoyma: {
+        heading: 'Introducing Project Joyma',
         paragraphs: [
-            'Lotus brings together the tools centres need to organise their programmes and support their communities, alongside a shared network where people can discover what centres offer.',
+            'Joyma brings together the tools centres need to organise their programmes and support their communities, alongside a shared network where people can discover what centres offer.',
         ],
         features: [
             {
@@ -45,7 +45,10 @@ export const home = {
                 illustration: 'volunteers',
             },
         ],
-        link: { label: 'Explore Lotus and its roadmap', href: routes.projectLotus },
+        links: [
+            { label: 'Explore Joyma and its roadmap', href: routes.projectJoyma },
+            { label: 'Visit joyma.co', href: joymaSite },
+        ],
     },
     builtWithCentres: {
         heading: 'Built with Dharma centres',
@@ -62,7 +65,7 @@ export const home = {
     sustainable: {
         heading: 'Affordable for centres. Sustainable for the future.',
         paragraphs: [
-            'Private individuals currently fund the project. This support is helping us develop Lotus with the needs of Dharma centres at its heart.',
+            'Private individuals currently fund the project. This support is helping us develop Joyma with the needs of Dharma centres at its heart.',
             'Our aim is fair, sustainable pricing that centres can afford and that supports the ongoing work of maintaining and improving the platform. We know centres need clarity about costs and continuity before choosing software they will rely on.',
         ],
         links: [{ label: 'Find out about funding and costs', href: routes.fundingAndCosts }],
@@ -71,15 +74,15 @@ export const home = {
         heading: 'Our approach to trust',
         paragraphs: [
             'Choosing software means entrusting it with part of your centre’s everyday work and the information your community shares with you.',
-            'Our Trust Centre will explain our approach to privacy, security and reliable service, with supporting information to help your team assess Lotus and ask informed questions.',
+            'Our Trust Centre will explain our approach to privacy, security and reliable service, with supporting information to help your team assess Joyma and ask informed questions.',
         ],
         links: [{ label: 'Our approach to trust', href: routes.trustCentre }],
     },
     shapeWhatsNext: {
         heading: 'Help shape what comes next',
         enquiry: {
-            text: 'We welcome conversations with centres interested in Lotus. Tell us about your programme, the systems you use and what you would like to make easier for your team.',
-            link: { label: 'Enquire about Lotus', href: routes.enquire },
+            text: 'We welcome conversations with centres interested in Joyma. Tell us about your programme, the systems you use and what you would like to make easier for your team.',
+            link: { label: 'Enquire about Joyma', href: routes.enquire },
         },
         support: {
             text: 'If you would like to support the project financially or contribute your experience and skills, we would also be glad to hear from you.',

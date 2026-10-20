@@ -4,9 +4,9 @@
 
 export const roadmap = {
     hero: {
-        heading: 'Help shape the development of Lotus',
+        heading: 'Help shape the development of Joyma',
         paragraphs: [
-            'We’re building Lotus with Dharma centres. This page brings together the current development priorities and a place to tell us what would make the platform more useful for your team.',
+            'We’re building Joyma with Dharma centres. This page brings together the current development priorities and a place to tell us what would make the platform more useful for your team.',
             'The roadmap distinguishes features ready for pilot testing from work in development and ideas still being considered. Plans may change, improve and adapt as we learn more from participating centres.',
         ],
     },
@@ -16,7 +16,7 @@ export const roadmap = {
         items: [
             {
                 heading: 'Centre accounts and team access',
-                text: 'Each centre has its own space in Lotus, with roles and invitations for team members. Centres can register their interest through our sign-up page, and the Joyful Effort team handles setup.',
+                text: 'Each centre has its own space in Joyma, with roles and invitations for team members. Centres can register their interest through our sign-up page, and the Joyful Effort team handles setup.',
                 illustration: 'volunteers',
             },
             {
@@ -31,7 +31,7 @@ export const roadmap = {
             },
             {
                 heading: 'Online courses through Moodle',
-                text: 'Centres using Moodle can connect their existing learning platform to Lotus, bring their course catalogue into Lotus and enrol participants. Participants can move from Lotus into Moodle without signing in again. Course access can be linked to membership benefits or granted directly by centre staff.',
+                text: 'Centres using Moodle can connect their existing learning platform to Joyma, bring their course catalogue into Joyma and enrol participants. Participants can move from Joyma into Moodle without signing in again. Course access can be linked to membership benefits or granted directly by centre staff.',
                 illustration: 'teaching',
             },
             {

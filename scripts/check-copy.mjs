@@ -16,10 +16,10 @@ const docsDirectory =
 const documents = {
     JE_Website_01_Homepage: ['index.html'],
     JE_Website_02_About: ['about.html'],
-    JE_Website_02_Project_Lotus: ['project-lotus.html'],
+    JE_Website_02_Project_Lotus: ['project-joyma.html'],
     JE_Website_04_Roadmap_and_Feedback: ['roadmap.html'],
     JE_Website_06_Get_Involved: ['get-involved.html'],
-    JE_Website_08_FAQ: ['project-lotus.html'],
+    JE_Website_08_FAQ: ['project-joyma.html'],
     JE_Website_09_Footer: ['index.html'],
 };
 
@@ -35,19 +35,19 @@ const skippedLines = [
     /^The following notes guide implementation/,
     /^Suggested (label|labels|display)/,
     /^Use (Company|one consistent footer)/,
-    /^(Joyful Effort (homepage copy|website footer)|About Joyful Effort|Project Lotus|Roadmap and feedback|Get involved|Lotus frequently asked questions)$/,
+    /^(Joyful Effort (homepage copy|website footer)|About Joyful Effort|Project Joyma|Roadmap and feedback|Get involved|Joyma frequently asked questions)$/,
 ];
 
 /** Footer doc sections after this heading are implementation notes. */
 const footerNotesHeading = 'Placement and additional links';
 
-/** Project Lotus short-FAQ entries replaced by the expanded FAQ document. */
+/** Project Joyma short-FAQ entries replaced by the expanded FAQ document. */
 const supersededHeadings = [
-    'Is Lotus right for our centre?',
-    'Can we start using Lotus now?',
+    'Is Joyma right for our centre?',
+    'Can we start using Joyma now?',
     'Can we keep our current website and systems?',
     'How will our information be handled?',
-    'What if we need something Lotus does not yet offer?',
+    'What if we need something Joyma does not yet offer?',
 ];
 
 /** Labels for document structure or confirmation states rather than page text. */
