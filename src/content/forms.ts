@@ -1,4 +1,4 @@
-/** Shared form status copy (PROPOSED — needs sign-off with the enquiry form copy). */
+/** Shared form status copy (PROPOSED — needs sign-off with the inquiry form copy). */
 export const formStatus = {
     sending: 'Sending…',
     error: 'Something went wrong and your message was not sent. Please try again, or email us at hello@joyfuleffort.com.',

@@ -6,22 +6,22 @@ import HandFrame from '@/components/HandFrame.astro';
 import Illustration from '@/components/Illustration.astro';
 import Section from '@/components/Section.astro';
 import TextBlock from '@/components/TextBlock.astro';
-import { centreEnquiry } from '@/content/centre-enquiry';
+import { centerInquiry } from '@/content/center-inquiry';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const { fields } = centreEnquiry;
+const { fields } = centerInquiry;
 ---
 
 <BaseLayout
-    title={centreEnquiry.heading}
-    description="Tell us about your centre, what’s working well and where you could use some support."
+    title={centerInquiry.heading}
+    description="Tell us about your center, what’s working well and where you could use some support."
 >
     <Section tone="light" innerClass="grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
         <div>
             <TextBlock
-                eyebrow={centreEnquiry.eyebrow}
-                heading={centreEnquiry.heading}
-                paragraphs={centreEnquiry.paragraphs}
+                eyebrow={centerInquiry.eyebrow}
+                heading={centerInquiry.heading}
+                paragraphs={centerInquiry.paragraphs}
                 level="h1"
                 size="h2"
             />
@@ -30,14 +30,14 @@ const { fields } = centreEnquiry;
         <HandFrame variant={0} offset class="bg-ivory-light">
             <div class="p-6 md:p-10">
                 <ContactForm
-                    action="/api/centre-enquiry"
-                    submitLabel={centreEnquiry.submit}
-                    confirmation={centreEnquiry.confirmation}
+                    action="/api/center-inquiry"
+                    submitLabel={centerInquiry.submit}
+                    confirmation={centerInquiry.confirmation}
                 >
                     <div class="grid gap-8 sm:grid-cols-2 sm:gap-4">
                         <FormField
-                            name="centre_name"
-                            label={fields.centreName.label}
+                            name="center_name"
+                            label={fields.centerName.label}
                             required
                             autocomplete="organization"
                         />
@@ -62,10 +62,10 @@ const { fields } = centreEnquiry;
                     </div>
                     <FormField name="email" type="email" label={fields.email.label} required autocomplete="email" />
                     <CheckboxGroup
-                        name="centre_types"
-                        legend={fields.centreTypes.label}
-                        hint={fields.centreTypes.hint}
-                        options={fields.centreTypes.options}
+                        name="center_types"
+                        legend={fields.centerTypes.label}
+                        hint={fields.centerTypes.hint}
+                        options={fields.centerTypes.options}
                     />
                     <CheckboxGroup
                         name="areas_of_interest"
@@ -87,7 +87,7 @@ const { fields } = centreEnquiry;
                         optional
                     />
                     <div class="prose-je">
-                        {centreEnquiry.closing.map((paragraph) => <p>{paragraph}</p>)}
+                        {centerInquiry.closing.map((paragraph) => <p>{paragraph}</p>)}
                     </div>
                 </ContactForm>
             </div>
@@ -95,6 +95,6 @@ const { fields } = centreEnquiry;
     </Section>
 
     <Section tone="warm">
-        <TextBlock heading={centreEnquiry.behind.heading} paragraphs={centreEnquiry.behind.paragraphs} />
+        <TextBlock heading={centerInquiry.behind.heading} paragraphs={centerInquiry.behind.paragraphs} />
     </Section>
 </BaseLayout>

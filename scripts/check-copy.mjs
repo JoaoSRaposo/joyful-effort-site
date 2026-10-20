@@ -43,7 +43,7 @@ const footerNotesHeading = 'Placement and additional links';
 
 /** Project Joyma short-FAQ entries replaced by the expanded FAQ document. */
 const supersededHeadings = [
-    'Is Joyma right for our centre?',
+    'Is Joyma right for our center?',
     'Can we start using Joyma now?',
     'Can we keep our current website and systems?',
     'How will our information be handled?',
@@ -53,7 +53,7 @@ const supersededHeadings = [
 /** Labels for document structure or confirmation states rather than page text. */
 const nonPageText = [
     'Confirmation message',
-    'Thank you for sharing your centre’s experience. Your request has been submitted.',
+    'Thank you for sharing your center’s experience. Your request has been submitted.',
     'Brand introduction',
     'Company details',
 ];
