@@ -1,7 +1,7 @@
 /**
  * Enquiry form copy.
  * PROPOSED — no enquiry-form document has been supplied yet. The intro reuses approved copy
- * from Project Joyma ("Getting started") and the Homepage ("Help shape what comes next");
+ * from Joyma ("Getting started") and the Homepage ("Help shape what comes next");
  * field labels and the confirmation message need Paul's sign-off.
  */
 export const enquire = {

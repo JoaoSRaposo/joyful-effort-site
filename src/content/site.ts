@@ -37,7 +37,7 @@ export const routes = {
 
 export const primaryNavigation: SiteLink[] = [
     { label: 'About', href: routes.about },
-    { label: 'Project Joyma', href: routes.projectJoyma },
+    { label: 'Joyma', href: routes.projectJoyma },
     { label: 'Trust Centre', href: routes.trustCentre },
     {
         label: 'Get Involved',
@@ -68,7 +68,7 @@ export const footer = {
             ],
         },
         {
-            heading: 'Project Joyma',
+            heading: 'Joyma',
             links: [
                 { label: 'Explore Joyma', href: routes.projectJoyma },
                 { label: 'Funding and costs', href: routes.fundingAndCosts },

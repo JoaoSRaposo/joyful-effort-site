@@ -12,7 +12,7 @@ export const home = {
             'Our first project, <strong>Joyma</strong>, brings centre administration and the discovery of teachings into one platform. We’re developing it to make everyday tasks easier for centre teams and help more people find the teachings and communities that support their practice.',
         ],
         links: [
-            { label: 'Explore Project Joyma', href: routes.projectJoyma },
+            { label: 'Explore Joyma', href: routes.projectJoyma },
             { label: 'Enquire about Joyma', href: routes.enquire },
         ],
     },
@@ -24,7 +24,7 @@ export const home = {
         ],
     },
     introducingJoyma: {
-        heading: 'Introducing Project Joyma',
+        heading: 'Introducing Joyma',
         paragraphs: [
             'Joyma brings together the tools centres need to organise their programmes and support their communities, alongside a shared network where people can discover what centres offer.',
         ],

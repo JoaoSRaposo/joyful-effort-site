@@ -1,5 +1,5 @@
 /**
- * Project Joyma page copy — verbatim from JE_Website_02_Project_Joyma_Copy_v01,
+ * Joyma page copy — verbatim from JE_Website_02_Project_Lotus_Copy_v01,
  * with the expanded FAQ from JE_Website_08_FAQ_Copy_v01 replacing the short
  * "Questions from centres" list (as the FAQ document instructs).
  */
@@ -101,7 +101,7 @@ export const projectJoyma = {
                     {
                         question: 'Can our centre start using it now?',
                         answer: [
-                            'Project Joyma is currently in the build and development phase, we’re due to launch in (date) and the software will be ready to use from day one.',
+                            'Joyma is currently in the build and development phase, we’re due to launch in (date) and the software will be ready to use from day one.',
                         ],
                         links: [{ label: 'Enquire about Joyma', href: routes.enquire }],
                     },

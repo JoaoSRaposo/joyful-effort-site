@@ -24,7 +24,7 @@ export const about = {
         paragraphs: [
             'Joyma combines tools for centre teams with a shared discovery network. Our ambition is a digital experience that reflects the care and quality of the teachings it helps people access.',
         ],
-        links: [{ label: 'Explore Project Joyma', href: routes.projectJoyma }],
+        links: [{ label: 'Explore Joyma', href: routes.projectJoyma }],
     },
     howWeWork: {
         heading: 'How we work',
