@@ -29,34 +29,34 @@ export const routes = {
     faq: '/project-joyma#faq',
     roadmap: '/roadmap',
     featureRequest: '/roadmap#feature-request',
-    trustCentre: '/trust-centre',
+    trustCenter: '/trust-center',
     getInvolved: '/get-involved',
-    centreEnquiry: '/get-involved/centre-enquiry',
-    enquire: '/enquire',
+    centerInquiry: '/get-involved/center-inquiry',
+    inquire: '/inquire',
 } as const;
 
 export const primaryNavigation: SiteLink[] = [
     { label: 'About', href: routes.about },
     { label: 'Joyma', href: routes.projectJoyma },
-    { label: 'Trust Centre', href: routes.trustCentre },
+    { label: 'Trust Center', href: routes.trustCenter },
     {
         label: 'Get Involved',
         href: routes.getInvolved,
         // PROPOSED sub-menu labels — need Paul's sign-off.
         children: [
             { label: 'Ways to get involved', href: routes.getInvolved },
-            { label: 'Centre enquiry form', href: routes.centreEnquiry },
+            { label: 'Center inquiry form', href: routes.centerInquiry },
         ],
     },
 ];
 
-export const primaryButton: SiteLink = { label: 'Enquire about Joyma', href: routes.enquire };
+export const primaryButton: SiteLink = { label: 'Inquire about Joyma', href: routes.inquire };
 
 export const footer = {
     brandName: 'JOYFUL EFFORT',
     tagline: 'Technology in service of the Dharma.',
     introduction:
-        'Our first project, Joyma, supports the work of Dharma centres and helps people discover teachings and communities.',
+        'Our first project, Joyma, supports the work of Dharma centers and helps people discover teachings and communities.',
     groups: [
         {
             heading: 'Company',
@@ -64,7 +64,7 @@ export const footer = {
                 { label: 'About Joyful Effort', href: routes.about },
                 { label: 'Meet the team', href: routes.team },
                 { label: 'Get involved', href: routes.getInvolved },
-                { label: 'Centre enquiry form', href: routes.centreEnquiry },
+                { label: 'Center inquiry form', href: routes.centerInquiry },
             ],
         },
         {
@@ -74,14 +74,14 @@ export const footer = {
                 { label: 'Funding and costs', href: routes.fundingAndCosts },
                 { label: 'Roadmap and feedback', href: routes.roadmap },
                 { label: 'Frequently asked questions', href: routes.faq },
-                { label: 'Enquire about Joyma', href: routes.enquire },
+                { label: 'Inquire about Joyma', href: routes.inquire },
                 { label: 'Visit joyma.co', href: joymaSite },
             ],
         },
         {
             heading: 'Trust and information',
             // Privacy notice and Terms and Conditions are added once the approved pages exist.
-            links: [{ label: 'Trust Centre', href: routes.trustCentre }],
+            links: [{ label: 'Trust Center', href: routes.trustCenter }],
         },
     ] satisfies { heading: string; links: SiteLink[] }[],
     contact: {
@@ -90,6 +90,4 @@ export const footer = {
         email: contactEmail,
     },
     copyright: '© 2026 Joyful Effort, LLC. All rights reserved.',
-    registration: 'Joyful Effort, LLC is registered in Virginia, United States.',
-    entityNumber: 'Virginia entity number: 12027020',
 };

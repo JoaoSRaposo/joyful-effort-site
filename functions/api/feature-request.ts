@@ -3,7 +3,7 @@ import { type Env, handleFormSubmission } from '../../server/forms';
 export const onRequestPost: PagesFunction<Env> = ({ request, env }) =>
     handleFormSubmission(request, env, {
         heading: 'New feature request from the Joyful Effort website',
-        subject: (values) => `Feature request — ${values.organisation || values.name}`,
+        subject: (values) => `Feature request — ${values.organization || values.name}`,
         replyToField: 'email',
         successPath: '/roadmap/submitted',
         backPath: '/roadmap#feature-request',
@@ -11,8 +11,8 @@ export const onRequestPost: PagesFunction<Env> = ({ request, env }) =>
             { name: 'name', label: 'Name', required: true, maxLength: 200 },
             { name: 'email', label: 'Email', required: true, email: true, maxLength: 254 },
             {
-                name: 'organisation',
-                label: 'Centre or organisation',
+                name: 'organization',
+                label: 'Center or organization',
                 required: true,
                 maxLength: 300,
             },

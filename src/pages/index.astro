@@ -14,7 +14,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 <BaseLayout
     title="Joyful Effort"
-    description="Joyful Effort works with Dharma centres to build technology that supports their work."
+    description="Joyful Effort works with Dharma centers to build technology that supports their work."
 >
     <SplitHero
         heading={home.hero.heading}
@@ -62,9 +62,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <StoryRow
         tone="warm"
-        heading={home.builtWithCentres.heading}
-        paragraphs={home.builtWithCentres.paragraphs}
-        links={home.builtWithCentres.links}
+        heading={home.builtWithCenters.heading}
+        paragraphs={home.builtWithCenters.paragraphs}
+        links={home.builtWithCenters.links}
         illustration="butter-lamp"
         variant={1}
     />
@@ -99,7 +99,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <h2 id="help-shape-what-comes-next" class="h2 max-w-[40rem]">{home.shapeWhatsNext.heading}</h2>
         <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-8">
             {
-                [home.shapeWhatsNext.enquiry, home.shapeWhatsNext.support].map((block, index) => (
+                [home.shapeWhatsNext.inquiry, home.shapeWhatsNext.support].map((block, index) => (
                     <HandFrame variant={index + 1} class="bg-ivory-light">
                         <div class="flex h-full flex-col gap-6 p-7 md:p-10">
                             <Illustration
