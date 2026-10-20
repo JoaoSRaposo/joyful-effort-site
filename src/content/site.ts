@@ -12,6 +12,9 @@ export interface SiteLink {
 
 export const contactEmail = 'hello@joyfuleffort.com';
 
+/** Joyma's own website. */
+export const joymaSite = 'https://joyma.co';
+
 export function mailto(subject: string): string {
     return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`;
 }
@@ -21,9 +24,9 @@ export const routes = {
     home: '/',
     about: '/about',
     team: '/about#meet-the-team',
-    projectLotus: '/project-lotus',
-    fundingAndCosts: '/project-lotus#funding-and-costs',
-    faq: '/project-lotus#faq',
+    projectJoyma: '/project-joyma',
+    fundingAndCosts: '/project-joyma#funding-and-costs',
+    faq: '/project-joyma#faq',
     roadmap: '/roadmap',
     featureRequest: '/roadmap#feature-request',
     trustCentre: '/trust-centre',
@@ -34,7 +37,7 @@ export const routes = {
 
 export const primaryNavigation: SiteLink[] = [
     { label: 'About', href: routes.about },
-    { label: 'Project Lotus', href: routes.projectLotus },
+    { label: 'Project Joyma', href: routes.projectJoyma },
     { label: 'Trust Centre', href: routes.trustCentre },
     {
         label: 'Get Involved',
@@ -47,13 +50,13 @@ export const primaryNavigation: SiteLink[] = [
     },
 ];
 
-export const primaryButton: SiteLink = { label: 'Enquire about Lotus', href: routes.enquire };
+export const primaryButton: SiteLink = { label: 'Enquire about Joyma', href: routes.enquire };
 
 export const footer = {
     brandName: 'JOYFUL EFFORT',
     tagline: 'Technology in service of the Dharma.',
     introduction:
-        'Our first project, Lotus, supports the work of Dharma centres and helps people discover teachings and communities.',
+        'Our first project, Joyma, supports the work of Dharma centres and helps people discover teachings and communities.',
     groups: [
         {
             heading: 'Company',
@@ -65,13 +68,14 @@ export const footer = {
             ],
         },
         {
-            heading: 'Project Lotus',
+            heading: 'Project Joyma',
             links: [
-                { label: 'Explore Lotus', href: routes.projectLotus },
+                { label: 'Explore Joyma', href: routes.projectJoyma },
                 { label: 'Funding and costs', href: routes.fundingAndCosts },
                 { label: 'Roadmap and feedback', href: routes.roadmap },
                 { label: 'Frequently asked questions', href: routes.faq },
-                { label: 'Enquire about Lotus', href: routes.enquire },
+                { label: 'Enquire about Joyma', href: routes.enquire },
+                { label: 'Visit joyma.co', href: joymaSite },
             ],
         },
         {

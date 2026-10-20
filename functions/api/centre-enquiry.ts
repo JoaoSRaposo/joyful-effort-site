@@ -5,8 +5,8 @@ const { fields } = centreEnquiry;
 
 export const onRequestPost: PagesFunction<Env> = ({ request, env }) =>
     handleFormSubmission(request, env, {
-        heading: 'New Lotus centre enquiry from the Joyful Effort website',
-        subject: (values) => `Lotus centre enquiry — ${values.centre_name || values.contact_name}`,
+        heading: 'New Joyma centre enquiry from the Joyful Effort website',
+        subject: (values) => `Joyma centre enquiry — ${values.centre_name || values.contact_name}`,
         replyToField: 'email',
         successPath: '/get-involved/centre-enquiry/submitted',
         backPath: '/get-involved/centre-enquiry',

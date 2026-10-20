@@ -41,13 +41,13 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <Section tone="light">
         <TextBlock
-            heading={home.introducingLotus.heading}
-            paragraphs={home.introducingLotus.paragraphs}
+            heading={home.introducingJoyma.heading}
+            paragraphs={home.introducingJoyma.paragraphs}
             class="max-w-[44rem]"
         />
         <div class="mt-10 grid gap-10 md:mt-14 md:grid-cols-3 md:gap-8">
             {
-                home.introducingLotus.features.map((feature, index) => (
+                home.introducingJoyma.features.map((feature, index) => (
                     <FeatureCard
                         heading={feature.heading}
                         text={feature.text}
@@ -57,7 +57,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
                 ))
             }
         </div>
-        <LinkRow links={[home.introducingLotus.link]} allText class="mt-10" />
+        <LinkRow links={home.introducingJoyma.links} allText class="mt-10" />
     </Section>
 
     <StoryRow

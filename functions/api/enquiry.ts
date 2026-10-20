@@ -2,8 +2,8 @@ import { type Env, handleFormSubmission } from '../../server/forms';
 
 export const onRequestPost: PagesFunction<Env> = ({ request, env }) =>
     handleFormSubmission(request, env, {
-        heading: 'New Lotus enquiry from the Joyful Effort website',
-        subject: (values) => `Lotus enquiry — ${values.organisation || values.name}`,
+        heading: 'New Joyma enquiry from the Joyful Effort website',
+        subject: (values) => `Joyma enquiry — ${values.organisation || values.name}`,
         replyToField: 'email',
         successPath: '/enquire/submitted',
         backPath: '/enquire',

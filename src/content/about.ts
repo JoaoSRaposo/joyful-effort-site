@@ -7,7 +7,7 @@ export const about = {
     hero: {
         heading: 'Technology in service of the Dharma',
         paragraphs: [
-            'Joyful Effort works with Dharma centres to develop technology that supports their work and the communities they serve. Our first project, Lotus, brings centre administration and the discovery of teachings into one platform.',
+            'Joyful Effort works with Dharma centres to develop technology that supports their work and the communities they serve. Our first project, Joyma, brings centre administration and the discovery of teachings into one platform.',
             'Our purpose is to support the flourishing of the Dharma and, through that work, to be of benefit to all sentient beings.',
         ],
     },
@@ -16,15 +16,15 @@ export const about = {
         paragraphs: [
             'Dharma centres bring people together for teachings, retreats and practice. Behind every programme are teams managing registrations, answering questions and keeping the centre running.',
             'Much of that work depends on software built for other industries. Disconnected systems create extra administration, and essential knowledge can become concentrated in one person. Meanwhile, people looking for teachings have no central place to explore the wealth of offerings available.',
-            'We’re developing Lotus with these needs in mind. We want technology to make the work of centres easier and help people find the teachings and communities that support their practice.',
+            'We’re developing Joyma with these needs in mind. We want technology to make the work of centres easier and help people find the teachings and communities that support their practice.',
         ],
     },
     firstProject: {
         heading: 'Our first project',
         paragraphs: [
-            'Lotus combines tools for centre teams with a shared discovery network. Our ambition is a digital experience that reflects the care and quality of the teachings it helps people access.',
+            'Joyma combines tools for centre teams with a shared discovery network. Our ambition is a digital experience that reflects the care and quality of the teachings it helps people access.',
         ],
-        links: [{ label: 'Explore Project Lotus', href: routes.projectLotus }],
+        links: [{ label: 'Explore Project Joyma', href: routes.projectJoyma }],
     },
     howWeWork: {
         heading: 'How we work',
@@ -41,15 +41,15 @@ export const about = {
         ],
     },
     centres: {
-        heading: 'Centres helping shape Lotus',
+        heading: 'Centres helping shape Joyma',
         paragraphs: [
-            'The perspective of centre teams is central to Lotus. Understanding how programmes work in practice helps us build tools that are useful in everyday centre life. Jamyang Buddhist Centre London, Shantideva New York, The Buddhist Centre, Santa Fe, Institure Vajra Yogini France and Chandrakirti Meditation Centre, New Zealand are currently supporting the project.',
+            'The perspective of centre teams is central to Joyma. Understanding how programmes work in practice helps us build tools that are useful in everyday centre life. Jamyang Buddhist Centre London, Shantideva New York, The Buddhist Centre, Santa Fe, Institure Vajra Yogini France and Chandrakirti Meditation Centre, New Zealand are currently supporting the project.',
         ],
     },
     funding: {
         heading: 'Funding and independence',
         paragraphs: [
-            'Private individuals currently fund the project. Their support is helping us develop Lotus around the needs of Dharma centres.',
+            'Private individuals currently fund the project. Their support is helping us develop Joyma around the needs of Dharma centres.',
             'Our aim is to keep the software affordable while supporting the ongoing work of maintaining and improving it. The funding model and the costs to centres are an important part of that conversation.',
         ],
         links: [
@@ -63,7 +63,7 @@ export const about = {
             'If you represent a Dharma centre, would like to collaborate, or have a question about Joyful Effort, we’d be glad to hear from you.',
         ],
         links: [
-            { label: 'Enquire about Lotus', href: routes.enquire },
+            { label: 'Enquire about Joyma', href: routes.enquire },
             { label: 'Contact Joyful Effort', href: mailto('Contact Joyful Effort') },
         ],
     },

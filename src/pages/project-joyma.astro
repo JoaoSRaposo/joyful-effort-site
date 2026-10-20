@@ -9,21 +9,21 @@ import Section from '@/components/Section.astro';
 import SplitHero from '@/components/SplitHero.astro';
 import StoryRow from '@/components/StoryRow.astro';
 import TextBlock from '@/components/TextBlock.astro';
-import { projectLotus } from '@/content/project-lotus';
+import { projectJoyma } from '@/content/project-joyma';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const { faq } = projectLotus;
+const { faq } = projectJoyma;
 ---
 
 <BaseLayout
-    title="Project Lotus"
-    description="Lotus is a platform that brings centre administration together with a shared network for discovering teachings and events."
+    title="Project Joyma"
+    description="Joyma is a platform that brings centre administration together with a shared network for discovering teachings and events."
 >
     <SplitHero
-        heading={projectLotus.hero.heading}
+        heading={projectJoyma.hero.heading}
         highlight="Dharma"
-        paragraphs={projectLotus.hero.paragraphs}
-        links={projectLotus.hero.links}
+        paragraphs={projectJoyma.hero.paragraphs}
+        links={projectJoyma.hero.links}
     >
         <HandFrame slot="media" offset variant={2} class="bg-sunshine">
             <div class="flex aspect-[4/3] items-center justify-center p-10">
@@ -34,13 +34,13 @@ const { faq } = projectLotus;
 
     <Section tone="warm">
         <TextBlock
-            heading={projectLotus.onePlatform.heading}
-            paragraphs={projectLotus.onePlatform.paragraphs}
+            heading={projectJoyma.onePlatform.heading}
+            paragraphs={projectJoyma.onePlatform.paragraphs}
             class="max-w-[44rem]"
         />
         <div class="mt-10 grid gap-10 sm:grid-cols-2 md:mt-14 lg:grid-cols-4 lg:gap-8">
             {
-                projectLotus.onePlatform.features.map((feature, index) => (
+                projectJoyma.onePlatform.features.map((feature, index) => (
                     <article class="flex flex-col">
                         <div class="bg-ivory-light p-4">
                             <HandFrame variant={index}>
@@ -58,9 +58,9 @@ const { faq } = projectLotus;
     </Section>
 
     <StoryRow
-        eyebrow={projectLotus.discoveryLabel}
-        heading={projectLotus.discovery.heading}
-        paragraphs={projectLotus.discovery.paragraphs}
+        eyebrow={projectJoyma.discoveryLabel}
+        heading={projectJoyma.discovery.heading}
+        paragraphs={projectJoyma.discovery.paragraphs}
         illustration="meditation"
         variant={0}
     />
@@ -68,22 +68,22 @@ const { faq } = projectLotus;
     <StoryRow
         tone="warm"
         reverse
-        heading={projectLotus.teamwork.heading}
-        paragraphs={projectLotus.teamwork.paragraphs}
+        heading={projectJoyma.teamwork.heading}
+        paragraphs={projectJoyma.teamwork.paragraphs}
         illustration="volunteers"
         variant={1}
     />
 
     <Section tone="light" innerClass="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        <TextBlock heading={projectLotus.inPractice.heading} paragraphs={projectLotus.inPractice.paragraphs} />
-        <ComingSoon text={projectLotus.inPractice.comingSoon} />
+        <TextBlock heading={projectJoyma.inPractice.heading} paragraphs={projectJoyma.inPractice.paragraphs} />
+        <ComingSoon text={projectJoyma.inPractice.comingSoon} />
     </Section>
 
     <Section tone="navy">
         <TextBlock
-            heading={projectLotus.gettingStarted.heading}
-            paragraphs={projectLotus.gettingStarted.paragraphs}
-            links={projectLotus.gettingStarted.links}
+            heading={projectJoyma.gettingStarted.heading}
+            paragraphs={projectJoyma.gettingStarted.paragraphs}
+            links={projectJoyma.gettingStarted.links}
             tone="ivory"
             class="max-w-[44rem]"
         />
@@ -91,9 +91,9 @@ const { faq } = projectLotus;
 
     <StoryRow
         id="funding-and-costs"
-        eyebrow={projectLotus.costsLabel}
-        heading={projectLotus.costs.heading}
-        paragraphs={projectLotus.costs.paragraphs}
+        eyebrow={projectJoyma.costsLabel}
+        heading={projectJoyma.costs.heading}
+        paragraphs={projectJoyma.costs.paragraphs}
         illustration="generosity"
         variant={2}
     />

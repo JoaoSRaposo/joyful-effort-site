@@ -1,5 +1,5 @@
 /**
- * Centre enquiry form copy — verbatim from the Lotus enquiry page
+ * Centre enquiry form copy — verbatim from the Joyma enquiry page
  * (stage.joyfuleffort.com/centres/enquiry). The confirmation message is PROPOSED
  * (the stage page does not show one) and needs Paul's sign-off.
  */
@@ -12,11 +12,11 @@ export interface FormOption {
 const selectAny = 'Optional · Select any that apply.';
 
 export const centreEnquiry = {
-    eyebrow: 'Lotus by Joyful Effort',
-    heading: 'Interested in Lotus for your centre?',
+    eyebrow: 'Joyma by Joyful Effort',
+    heading: 'Interested in Joyma for your centre?',
     paragraphs: [
-        'Lotus is being built by people who serve in Dharma centres and understand the day-to-day work of supporting a Dharma community. We’re bringing together event bookings, donations and administration to make that work easier.',
-        'We’d love to hear about your centre, what’s working well and where you could use some support. Share a few details below and we’ll explore how Lotus could help.',
+        'Joyma is being built by people who serve in Dharma centres and understand the day-to-day work of supporting a Dharma community. We’re bringing together event bookings, donations and administration to make that work easier.',
+        'We’d love to hear about your centre, what’s working well and where you could use some support. Share a few details below and we’ll explore how Joyma could help.',
     ],
     fields: {
         centreName: { label: 'Centre name' },
@@ -76,9 +76,9 @@ export const centreEnquiry = {
     submit: 'Send enquiry',
     confirmation: 'Thank you for getting in touch. Your enquiry has been sent.',
     behind: {
-        heading: 'Who’s behind Lotus?',
+        heading: 'Who’s behind Joyma?',
         paragraphs: [
-            'Lotus is a project of Joyful Effort, founded by Lauren Ross, a Dharma student and board member at a Buddhist centre in Santa Fe.',
+            'Joyma is a project of Joyful Effort, founded by Lauren Ross, a Dharma student and board member at a Buddhist centre in Santa Fe.',
             'The project brings together people with experience of serving Dharma communities, with support from Mindful Design, which helps Dharma centres with their digital work, and MetaProvide, our software development partner.',
         ],
     },
