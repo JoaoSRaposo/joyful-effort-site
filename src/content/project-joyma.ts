@@ -11,7 +11,7 @@ export const projectJoyma = {
         paragraphs: [
             'Joyma is our first project: a platform that brings center administration together with a shared network for discovering teachings and events.',
             'We’re developing it with Dharma centers to make everyday administration easier, support continuity across teams and help more people find what centers offer.',
-            'We’re currently working with our ‘Joyma Seed’ partners; centers who are helping us develop the project based on their communities needs. If you and your center are interested in becoming a Joyma development partner, we’d love to hear from you.',
+            'We’re currently working with our ‘Joyma Seed’ partners; centers who are helping us develop the project based on their communities’ needs. If you and your center are interested in becoming a Joyma development partner, we’d love to hear from you.',
         ],
         links: [
             { label: 'Inquire about Joyma', href: routes.inquire },
@@ -101,7 +101,7 @@ export const projectJoyma = {
                     {
                         question: 'Can our center start using it now?',
                         answer: [
-                            'Joyma is currently in the build and development phase, we’re due to launch in (date) and the software will be ready to use from day one.',
+                            'Joyma is currently in the build and development phase, we’re due to launch in early 2027 and the software will be ready to use from day one.',
                         ],
                         links: [{ label: 'Inquire about Joyma', href: routes.inquire }],
                     },
@@ -122,14 +122,14 @@ export const projectJoyma = {
                     {
                         question: 'Can we keep our existing website and tools?',
                         answer: [
-                            'Yes, we’re desigining Joyma to be a piece of software that can easily intergrate with your current website. As for your existing tools, Joyma is designed as an all-in-platform and should meet the needs of your current tech stack in one piece of software – anything we haven’t covered? Drop us a line, let us know and we can add features and ideas to our roadmap.',
+                            'Yes, we’re designing Joyma to be a piece of software that can easily integrate with your current website. As for your existing tools, Joyma is designed as an all-in-one platform and should meet the needs of your current tech stack in one piece of software – anything we haven’t covered? Drop us a line, let us know and we can add features and ideas to our roadmap.',
                         ],
                         links: [],
                     },
                     {
                         question: 'How do we move our information across?',
                         answer: [
-                            'Our data import service seamless allows for uploads of data. If you need to take things a bit slower and and prefer a stepby-step approach, we can provide support during your center on-boarding with Joyma.',
+                            'Our data import service seamlessly allows for uploads of data. If you need to take things a bit slower and prefer a step-by-step approach, we can provide support during your center on-boarding with Joyma.',
                         ],
                         links: [],
                     },
@@ -141,7 +141,7 @@ export const projectJoyma = {
                     {
                         question: 'What training and ongoing support will we receive?',
                         answer: [
-                            'We’re creating a full supported onboarding service for all centers that work with Joyma, dedicated time, bespoke to your centers need and human focused. If you need us for bug fixes, feature suggestions, support or anything else, simply drop us and email – we’d love to hear from you.',
+                            'We’re creating a full supported onboarding service for all centers that work with Joyma, dedicated time, bespoke to your center’s needs and human focused. If you need us for bug fixes, feature suggestions, support or anything else, simply drop us an email – we’d love to hear from you.',
                         ],
                         links: [],
                     },

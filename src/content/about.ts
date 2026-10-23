@@ -43,7 +43,7 @@ export const about = {
     centers: {
         heading: 'Centers helping shape Joyma',
         paragraphs: [
-            'The perspective of center teams is central to Joyma. Understanding how programs work in practice helps us build tools that are useful in everyday center life. Jamyang Buddhist Center London, Shantideva New York, The Buddhist Center, Santa Fe, Institure Vajra Yogini France and Chandrakirti Meditation Center, New Zealand are currently supporting the project.',
+            'The perspective of center teams is central to Joyma. Understanding how programs work in practice helps us build tools that are useful in everyday center life. Jamyang Buddhist Center London, Shantideva New York, The Buddhist Center, Santa Fe, Institut Vajra Yogini France and Chandrakirti Meditation Center, New Zealand are currently supporting the project.',
         ],
     },
     funding: {
