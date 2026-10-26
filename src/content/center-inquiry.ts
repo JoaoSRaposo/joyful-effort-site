@@ -73,6 +73,11 @@ export const centerInquiry = {
         'We’ll email you within a few working days to answer your questions. If you’d like, we can also arrange a short call.',
         'There’s no obligation to join—let’s connect and start a conversation.',
     ],
+    /** Points people who are not inquiring for a center to the general inquiry form. */
+    generalPointer: {
+        text: 'Not writing on behalf of a center? Send us a general question instead.',
+        label: 'Ask a general question',
+    },
     submit: 'Send inquiry',
     confirmation: 'Thank you for getting in touch. Your inquiry has been sent.',
     behind: {

@@ -13,7 +13,7 @@ export const home = {
         ],
         links: [
             { label: 'Explore Joyma', href: routes.projectJoyma },
-            { label: 'Inquire about Joyma', href: routes.inquire },
+            { label: 'Inquire about Joyma', href: routes.centerInquiry },
         ],
     },
     moreTime: {
@@ -59,7 +59,7 @@ export const home = {
         ],
         links: [
             { label: 'Meet the team', href: routes.team },
-            { label: 'Share your center’s needs', href: routes.inquire },
+            { label: 'Share your center’s needs', href: routes.centerInquiry },
         ],
     },
     sustainable: {
@@ -82,7 +82,7 @@ export const home = {
         heading: 'Help shape what comes next',
         inquiry: {
             text: 'We welcome conversations with centers interested in Joyma. Tell us about your program, the systems you use and what you would like to make easier for your team.',
-            link: { label: 'Inquire about Joyma', href: routes.inquire },
+            link: { label: 'Inquire about Joyma', href: routes.centerInquiry },
         },
         support: {
             text: 'If you would like to support the project financially or contribute your experience and skills, we would also be glad to hear from you.',

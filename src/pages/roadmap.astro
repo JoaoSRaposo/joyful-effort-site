@@ -1,7 +1,5 @@
 ---
 import ComingSoon from '@/components/ComingSoon.astro';
-import ContactForm from '@/components/ContactForm.astro';
-import FormField from '@/components/FormField.astro';
 import HandFrame from '@/components/HandFrame.astro';
 import Illustration from '@/components/Illustration.astro';
 import Section from '@/components/Section.astro';
@@ -9,13 +7,11 @@ import SplitHero from '@/components/SplitHero.astro';
 import TextBlock from '@/components/TextBlock.astro';
 import { roadmap } from '@/content/roadmap';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-
-const { form } = roadmap;
 ---
 
 <BaseLayout
     title="Roadmap and feedback"
-    description="The current development priorities for Joyma, and a place to tell us what would make the platform more useful for your team."
+    description="The current development priorities for Joyma: features ready for pilot testing, work in development and ideas under consideration."
 >
     <SplitHero heading={roadmap.hero.heading} highlight="Joyma" paragraphs={roadmap.hero.paragraphs}>
         <HandFrame slot="media" offset variant={1} class="bg-sunshine">
@@ -57,63 +53,5 @@ const { form } = roadmap;
                 <ComingSoon text={roadmap.recentProgress.text} class="mt-6" variant={2} />
             </div>
         </div>
-    </Section>
-
-    <Section tone="warm" id="feature-request">
-        <div class="grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
-            <div>
-                <TextBlock eyebrow={form.label} heading={form.heading} paragraphs={form.paragraphs} />
-                <Illustration name="communications" class="mt-8 hidden w-36 lg:block" />
-            </div>
-            <HandFrame variant={1} class="bg-ivory-light">
-                <div class="p-6 md:p-10">
-                    <ContactForm
-                        action="/api/feature-request"
-                        submitLabel={form.submit}
-                        confirmation={form.confirmation}
-                    >
-                        <fieldset>
-                            <legend class="text-lg font-semibold">{form.fields.nameAndEmail.label}</legend>
-                            <p id="name-email-hint" class="mt-1 text-base text-navy/80">
-                                {form.fields.nameAndEmail.hint}
-                            </p>
-                            <div class="mt-1 grid gap-4 sm:grid-cols-2">
-                                <FormField name="name" label="Name" required autocomplete="name" labelClass="text-base font-medium" />
-                                <FormField name="email" label="Email" type="email" required autocomplete="email" labelClass="text-base font-medium" />
-                            </div>
-                        </fieldset>
-                        <FormField
-                            name="organization"
-                            label={form.fields.organization.label}
-                            hint={form.fields.organization.hint}
-                            required
-                            autocomplete="organization"
-                        />
-                        <FormField name="task" type="textarea" label={form.fields.task.label} hint={form.fields.task.hint} required />
-                        <FormField
-                            name="difficulty"
-                            type="textarea"
-                            label={form.fields.difficulty.label}
-                            hint={form.fields.difficulty.hint}
-                            required
-                        />
-                        <FormField
-                            name="improvement"
-                            type="textarea"
-                            label={form.fields.improvement.label}
-                            hint={form.fields.improvement.hint}
-                        />
-                    </ContactForm>
-                </div>
-            </HandFrame>
-        </div>
-    </Section>
-
-    <Section tone="light">
-        <TextBlock
-            heading={roadmap.howFeedbackInforms.heading}
-            paragraphs={[roadmap.howFeedbackInforms.text]}
-            class="max-w-[44rem]"
-        />
     </Section>
 </BaseLayout>

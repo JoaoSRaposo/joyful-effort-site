@@ -63,7 +63,7 @@ export const about = {
             'If you represent a Dharma center, would like to collaborate, or have a question about Joyful Effort, we’d be glad to hear from you.',
         ],
         links: [
-            { label: 'Inquire about Joyma', href: routes.inquire },
+            { label: 'Inquire about Joyma', href: routes.centerInquiry },
             { label: 'Contact Joyful Effort', href: mailto('Contact Joyful Effort') },
         ],
     },

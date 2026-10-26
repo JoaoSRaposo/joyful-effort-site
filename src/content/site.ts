@@ -28,7 +28,6 @@ export const routes = {
     fundingAndCosts: '/project-joyma#funding-and-costs',
     faq: '/project-joyma#faq',
     roadmap: '/roadmap',
-    featureRequest: '/roadmap#feature-request',
     trustCenter: '/trust-center',
     getInvolved: '/get-involved',
     centerInquiry: '/get-involved/center-inquiry',
@@ -47,11 +46,12 @@ export const primaryNavigation: SiteLink[] = [
         children: [
             { label: 'Ways to get involved', href: routes.getInvolved },
             { label: 'Center inquiry form', href: routes.centerInquiry },
+            { label: 'General inquiry', href: routes.inquire },
         ],
     },
 ];
 
-export const primaryButton: SiteLink = { label: 'Inquire about Joyma', href: routes.inquire };
+export const primaryButton: SiteLink = { label: 'Inquire about Joyma', href: routes.centerInquiry };
 
 export const footer = {
     brandName: 'JOYFUL EFFORT',
@@ -65,7 +65,7 @@ export const footer = {
                 { label: 'About Joyful Effort', href: routes.about },
                 { label: 'Meet the team', href: routes.team },
                 { label: 'Get involved', href: routes.getInvolved },
-                { label: 'Center inquiry form', href: routes.centerInquiry },
+                { label: 'General inquiry', href: routes.inquire },
             ],
         },
         {
@@ -75,7 +75,7 @@ export const footer = {
                 { label: 'Funding and costs', href: routes.fundingAndCosts },
                 { label: 'Roadmap and feedback', href: routes.roadmap },
                 { label: 'Frequently asked questions', href: routes.faq },
-                { label: 'Inquire about Joyma', href: routes.inquire },
+                { label: 'Inquire about Joyma', href: routes.centerInquiry },
                 { label: 'Visit joyma.co', href: joymaSite },
             ],
         },
