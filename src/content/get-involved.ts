@@ -39,7 +39,7 @@ export const getInvolved = {
                 'The people running centers understand the details that software needs to get right. Tell us how your program works, where administration takes time and what would make the greatest difference to your team.',
                 'If your center is interested in Joyma, use the inquiry form to begin a conversation.',
             ],
-            link: { label: 'Inquire about Joyma', href: routes.inquire },
+            link: { label: 'Inquire about Joyma', href: routes.centerInquiry },
             illustration: 'meditation',
         },
         {
@@ -61,9 +61,9 @@ export const getInvolved = {
         {
             heading: 'Share an idea for Joyma',
             paragraphs: [
-                'If your suggestion is about how Joyma could work better for a center, our feature-request form is the best place to describe the need.',
+                'If you have a suggestion for how Joyma could work better for a center, tell us about the need through our general inquiry form.',
             ],
-            link: { label: 'Share a feature request', href: routes.featureRequest },
+            link: { label: 'Share an idea', href: routes.inquire },
             illustration: 'prayer-book',
         },
     ],

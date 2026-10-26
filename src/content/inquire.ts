@@ -1,26 +1,28 @@
 /**
- * Inquiry form copy.
- * PROPOSED — no inquiry-form document has been supplied yet. The intro reuses approved copy
- * from Joyma ("Getting started") and the Homepage ("Help shape what comes next");
- * field labels and the confirmation message need Paul's sign-off.
+ * General inquiry form copy, for anyone who is not inquiring on behalf of a center.
+ * Centers use the center inquiry form (center-inquiry.ts).
  */
 export const inquire = {
-    heading: 'Inquire about Joyma',
+    heading: 'Ask us a question',
     paragraphs: [
-        'Tell us about your center, your program and the systems you use. This gives us a starting point for discussing how Joyma can fit your needs.',
+        'Have a question about Joyma or Joyful Effort, or an idea you would like to share? Send us a message and we’ll get back to you.',
     ],
+    centerPointer: {
+        text: 'Inquiring on behalf of a Dharma center? The center inquiry form lets you tell us more about your center.',
+        label: 'Go to the center inquiry form',
+    },
     fields: {
         name: { label: 'Your name' },
         email: { label: 'Email' },
         organization: {
             label: 'Center or organization',
-            hint: 'The center you work with and your role there.',
+            hint: 'If you’re writing on behalf of a center or organization, tell us which one and your role there.',
         },
         message: {
-            label: 'Tell us about your center',
-            hint: 'Tell us about your program, the systems you use and what you would like to make easier for your team.',
+            label: 'Your message',
+            hint: 'Tell us what you’d like to know or share.',
         },
     },
-    submit: 'Inquire about Joyma',
-    confirmation: 'Thank you for getting in touch. Your inquiry has been sent.',
+    submit: 'Send message',
+    confirmation: 'Thank you for getting in touch. Your message has been sent.',
 };

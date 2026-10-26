@@ -7,6 +7,7 @@ import Illustration from '@/components/Illustration.astro';
 import Section from '@/components/Section.astro';
 import TextBlock from '@/components/TextBlock.astro';
 import { centerInquiry } from '@/content/center-inquiry';
+import { routes } from '@/content/site';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 const { fields } = centerInquiry;
@@ -21,7 +22,9 @@ const { fields } = centerInquiry;
             <TextBlock
                 eyebrow={centerInquiry.eyebrow}
                 heading={centerInquiry.heading}
-                paragraphs={centerInquiry.paragraphs}
+                paragraphs={[...centerInquiry.paragraphs, centerInquiry.generalPointer.text]}
+                links={[{ label: centerInquiry.generalPointer.label, href: routes.inquire }]}
+                allTextLinks
                 level="h1"
                 size="h2"
             />

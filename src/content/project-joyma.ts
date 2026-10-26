@@ -14,7 +14,7 @@ export const projectJoyma = {
             'We’re currently working with our ‘Joyma Seed’ partners; centers who are helping us develop the project based on their communities’ needs. If you and your center are interested in becoming a Joyma development partner, we’d love to hear from you.',
         ],
         links: [
-            { label: 'Inquire about Joyma', href: routes.inquire },
+            { label: 'Inquire about Joyma', href: routes.centerInquiry },
             { label: 'View the roadmap', href: routes.roadmap },
             { label: 'Visit joyma.co', href: joymaSite },
         ],
@@ -74,7 +74,7 @@ export const projectJoyma = {
         paragraphs: [
             'Tell us about your center, your program and the systems you use. This gives us a starting point for discussing how Joyma can fit your needs.',
         ],
-        links: [{ label: 'Inquire about Joyma', href: routes.inquire }],
+        links: [{ label: 'Inquire about Joyma', href: routes.centerInquiry }],
     },
     costsLabel: 'Costs and center questions',
     costs: {
@@ -103,7 +103,7 @@ export const projectJoyma = {
                         answer: [
                             'Joyma is currently in the build and development phase, we’re due to launch in early 2027 and the software will be ready to use from day one.',
                         ],
-                        links: [{ label: 'Inquire about Joyma', href: routes.inquire }],
+                        links: [{ label: 'Inquire about Joyma', href: routes.centerInquiry }],
                     },
                     {
                         question: 'What does Joyma cost and what is included?',
@@ -165,7 +165,7 @@ export const projectJoyma = {
                             'Tell us what your team is trying to do, how you manage it today and what would make it easier. You don’t need a technical solution in mind. Requests help us understand center needs and inform development priorities, although submitting a request does not guarantee it will be developed.',
                         ],
                         links: [
-                            { label: 'Share a feature request', href: routes.featureRequest },
+                            { label: 'Share an idea', href: routes.inquire },
                             { label: 'View the roadmap', href: routes.roadmap },
                         ],
                     },
@@ -175,7 +175,7 @@ export const projectJoyma = {
         stillHaveAQuestion: {
             heading: 'Still have a question?',
             text: 'Tell us about your center and what you would like to understand. We’d be glad to hear from you.',
-            link: { label: 'Inquire about Joyma', href: routes.inquire },
+            link: { label: 'Inquire about Joyma', href: routes.centerInquiry },
         },
     },
 };

@@ -1,12 +1,14 @@
 /**
- * Roadmap and feedback copy — verbatim from JE_Website_04_Roadmap_and_Feedback_Copy_v02.
+ * Roadmap and feedback copy — from JE_Website_04_Roadmap_and_Feedback_Copy_v02. The feature-request
+ * form has been retired (pilot feedback comes through the Joyma Seed feedback form), so its copy
+ * and the hero's mention of it are no longer used.
  */
 
 export const roadmap = {
     hero: {
         heading: 'Help shape the development of Joyma',
         paragraphs: [
-            'We’re building Joyma with Dharma centers. This page brings together the current development priorities and a place to tell us what would make the platform more useful for your team.',
+            'We’re building Joyma with Dharma centers. This page brings together the current development priorities and what our partner centers are helping us test.',
             'The roadmap distinguishes features ready for pilot testing from work in development and ideas still being considered. Plans may change, improve and adapt as we learn more from participating centers.',
         ],
     },
@@ -57,42 +59,5 @@ export const roadmap = {
     recentProgress: {
         heading: 'Recent progress',
         text: 'Coming soon',
-    },
-    form: {
-        label: 'Feature request form',
-        heading: 'What would help your center?',
-        paragraphs: [
-            'Tell us about the task you’re trying to complete and where you run into difficulty. You don’t need to have a technical solution in mind.',
-            'Please avoid including student records, payment information or other personal details in your request.',
-        ],
-        fields: {
-            nameAndEmail: {
-                label: 'Your name and email',
-                hint: 'So we can contact you if we need to understand your request better.',
-            },
-            organization: {
-                label: 'Center or organization',
-                hint: 'The center you work with and your role there.',
-            },
-            task: {
-                label: 'What are you trying to do?',
-                hint: 'Describe the task and who needs to complete it.',
-            },
-            difficulty: {
-                label: 'What makes this difficult today?',
-                hint: 'Tell us how you handle it now, how often it comes up and the effect it has on your team.',
-            },
-            improvement: {
-                label: 'What would a useful improvement look like?',
-                hint: 'Share any ideas you have. It’s fine to describe the outcome you need without suggesting a feature.',
-            },
-        },
-        submit: 'Submit a feature request',
-        confirmation:
-            'Thank you for sharing your center’s experience. Your request has been submitted.',
-    },
-    howFeedbackInforms: {
-        heading: 'How feedback informs the roadmap',
-        text: 'Requests help us understand the needs of centers and identify where changes could be useful. Submitting a request does not guarantee that we will develop it.',
     },
 };
