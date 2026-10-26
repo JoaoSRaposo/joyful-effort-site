@@ -1,5 +1,5 @@
 /**
- * About page copy — verbatim from JE_Website_02_About_Copy_v01.
+ * About page copy — originally from JE_Website_02_About_Copy_v01.
  */
 import { mailto, routes } from './site';
 
