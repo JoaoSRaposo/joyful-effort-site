@@ -39,19 +39,10 @@ export const primaryNavigation: SiteLink[] = [
     { label: 'Joyma', href: routes.projectJoyma },
     { label: 'Roadmap', href: routes.roadmap },
     { label: 'Trust Center', href: routes.trustCenter },
-    {
-        label: 'Get Involved',
-        href: routes.getInvolved,
-        // PROPOSED sub-menu labels — need Paul's sign-off.
-        children: [
-            { label: 'Ways to get involved', href: routes.getInvolved },
-            { label: 'Center inquiry form', href: routes.centerInquiry },
-            { label: 'General inquiry', href: routes.inquire },
-        ],
-    },
+    { label: 'Get Involved', href: routes.getInvolved },
 ];
 
-export const primaryButton: SiteLink = { label: 'Inquire about Joyma', href: routes.centerInquiry };
+export const primaryButton: SiteLink = { label: 'Inquire for your center', href: routes.centerInquiry };
 
 export const footer = {
     brandName: 'JOYFUL EFFORT',
@@ -65,7 +56,7 @@ export const footer = {
                 { label: 'About Joyful Effort', href: routes.about },
                 { label: 'Meet the team', href: routes.team },
                 { label: 'Get involved', href: routes.getInvolved },
-                { label: 'General inquiry', href: routes.inquire },
+                { label: 'Contact us', href: routes.inquire },
             ],
         },
         {
