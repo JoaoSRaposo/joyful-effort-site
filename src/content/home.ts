@@ -1,5 +1,5 @@
 /**
- * Homepage copy — verbatim from JE_Website_01_Homepage_Copy_v01.
+ * Homepage copy — originally from JE_Website_01_Homepage_Copy_v01.
  * Paragraphs may contain inline <strong> markup from the source document.
  */
 import { joymaSite, routes } from './site';

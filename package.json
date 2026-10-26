@@ -8,8 +8,7 @@
         "preview": "wrangler pages dev dist",
         "check": "astro check && tsc -p functions/tsconfig.json && biome check .",
         "format": "biome format --write .",
-        "lint": "biome check --write .",
-        "copy:check": "node scripts/check-copy.mjs"
+        "lint": "biome check --write ."
     },
     "dependencies": {
         "@astrojs/sitemap": "^3.7.4",

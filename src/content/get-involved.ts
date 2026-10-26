@@ -1,5 +1,5 @@
 /**
- * Get involved copy — verbatim from JE_Website_06_Get_Involved_Copy_v01.
+ * Get involved copy — originally from JE_Website_06_Get_Involved_Copy_v01.
  */
 import { mailto, routes } from './site';
 

@@ -1,5 +1,5 @@
 /**
- * Joyma page copy — verbatim from JE_Website_02_Project_Lotus_Copy_v01,
+ * Joyma page copy — originally from JE_Website_02_Project_Lotus_Copy_v01,
  * with the expanded FAQ from JE_Website_08_FAQ_Copy_v01 replacing the short
  * "Questions from centers" list (as the FAQ document instructs).
  */

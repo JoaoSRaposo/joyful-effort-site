@@ -1,5 +1,5 @@
 /**
- * Center inquiry form copy — verbatim from the Joyma inquiry page
+ * Center inquiry form copy — originally from the Joyma inquiry page
  * (stage.joyfuleffort.com/centers/inquiry). The confirmation message is PROPOSED
  * (the stage page does not show one) and needs Paul's sign-off.
  */

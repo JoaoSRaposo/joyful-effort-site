@@ -17,14 +17,11 @@ For `pnpm preview`, copy `.dev.vars.example` to `.dev.vars`. The example uses Cl
 
 ```bash
 pnpm check          # astro check + functions typecheck + Biome
-pnpm copy:check     # after build: verifies the source copy documents appear verbatim
 ```
-
-`copy:check` reads the copy documents from `../lotus/.serena/memories/docs/Knowledge/marketing/joyful-effort-website` by default; pass another path as an argument if needed.
 
 ## Where things live
 
-- `src/content/*.ts` holds all page copy, transcribed verbatim from the copy documents. Copy changes happen here.
+- `src/content/*.ts` holds all page copy and is the single source of truth for the site's wording. The original copy documents are no longer kept in sync; copy changes happen here and are reviewed in pull requests.
 - `src/components/` holds the hand-drawn design system (HandFrame, HandRule, SplitHero, StoryRow, FeatureCard, Footer, …).
 - `src/assets/logo/joyful-effort.svg` is the logo, traced from the original ink-on-paper artwork.
 - `src/assets/illustrations/` holds the ten spot illustrations.
