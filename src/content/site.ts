@@ -29,6 +29,7 @@ export const routes = {
     faq: '/project-joyma#faq',
     roadmap: '/roadmap',
     trustCenter: '/trust-center',
+    trustCenterProviders: '/trust-center/providers',
     getInvolved: '/get-involved',
     centerInquiry: '/get-involved/center-inquiry',
     inquire: '/inquire',
@@ -42,7 +43,10 @@ export const primaryNavigation: SiteLink[] = [
     { label: 'Get Involved', href: routes.getInvolved },
 ];
 
-export const primaryButton: SiteLink = { label: 'Inquire for your center', href: routes.centerInquiry };
+export const primaryButton: SiteLink = {
+    label: 'Inquire for your center',
+    href: routes.centerInquiry,
+};
 
 export const footer = {
     brandName: 'JOYFUL EFFORT',

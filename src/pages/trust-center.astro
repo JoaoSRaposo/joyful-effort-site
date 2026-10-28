@@ -1,23 +1,164 @@
 ---
 import Button from '@/components/Button.astro';
-import ComingSoon from '@/components/ComingSoon.astro';
+import FaqItem from '@/components/FaqItem.astro';
+import HandFrame from '@/components/HandFrame.astro';
+import HandRule from '@/components/HandRule.astro';
 import Illustration from '@/components/Illustration.astro';
+import LinkRow from '@/components/LinkRow.astro';
+import PreviewBanner from '@/components/PreviewBanner.astro';
 import Section from '@/components/Section.astro';
-import { footer } from '@/content/site';
+import SplitHero from '@/components/SplitHero.astro';
+import TextBlock from '@/components/TextBlock.astro';
 import { trustCenter } from '@/content/trust-center';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const { hero, sections, regions, contact } = trustCenter;
+const pageLinks = [...sections, regions];
 ---
 
-<BaseLayout title={trustCenter.heading} description="The Joyful Effort Trust Center is coming soon.">
-    <Section tone="light" innerClass="grid items-center gap-10 md:grid-cols-2 md:gap-16 md:min-h-[50vh]">
-        <div>
-            <h1 id="trust-center" class="h1">{trustCenter.heading}</h1>
-            <ComingSoon text={trustCenter.comingSoon} class="mt-8 max-w-[28rem]" />
-            <p class="mt-10 max-w-[30rem]">{footer.contact.text}</p>
-            <Button href={`mailto:${footer.contact.email}`} variant="text" class="mt-2">
-                {footer.contact.email}
-            </Button>
+<BaseLayout
+    title={trustCenter.heading}
+    description="How Joyful Effort approaches security, privacy and reliable service for Joyma."
+    noindex
+>
+    <PreviewBanner label={trustCenter.preview.label} text={trustCenter.preview.text} />
+
+    <SplitHero heading={hero.heading} highlight={hero.highlight} paragraphs={hero.paragraphs}>
+        <HandFrame slot="media" offset variant={2} class="bg-sunshine">
+            <div class="flex aspect-[4/3] items-center justify-center p-10">
+                <Illustration name="butter-lamp" class="max-w-[12rem]" loading="eager" />
+            </div>
+        </HandFrame>
+    </SplitHero>
+
+    <Section tone="light" spacing="compact" class="pt-0 md:pt-0">
+        <nav aria-label="On this page">
+            <p class="eyebrow mb-2">{trustCenter.heading}</p>
+            <ul class="flex flex-wrap gap-x-8">
+                {
+                    pageLinks.map((link) => (
+                        <li>
+                            <Button href={`#${link.id}`} variant="text">
+                                {link.label}
+                            </Button>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+        <div class="mt-8 max-w-[44rem] border-l-4 border-sunshine pl-5">
+            <p class="text-sm font-medium">{hero.lastUpdated}</p>
+            <p class="mt-2">{hero.notice}</p>
         </div>
-        <Illustration name="butter-lamp" class="mx-auto w-48 md:w-60" loading="eager" />
+    </Section>
+
+    {
+        sections.map((section, sectionIndex) => (
+            <Section tone={sectionIndex % 2 === 0 ? 'warm' : 'light'} id={section.id} class="scroll-mt-20">
+                <div class="grid gap-10 lg:grid-cols-[4fr_8fr] lg:gap-16">
+                    <TextBlock eyebrow={section.label} heading={section.heading} paragraphs={section.intro} />
+                    <div class="relative">
+                        {section.questions.map((item, index) => (
+                            <FaqItem question={item.question} answer={item.answer} links={item.links} variant={index} />
+                        ))}
+                        <HandRule class="bottom-0 left-0" variant={1} />
+                    </div>
+                </div>
+            </Section>
+        ))
+    }
+
+    <Section tone={sections.length % 2 === 0 ? 'warm' : 'light'} id={regions.id} class="scroll-mt-20">
+        <TextBlock eyebrow={regions.label} heading={regions.heading} paragraphs={[regions.intro]} class="max-w-[44rem]" />
+
+        <div class="mt-10" data-region-picker>
+            <div role="tablist" aria-label={regions.selectorLabel} class="hidden flex-wrap gap-3" data-region-tabs>
+                {
+                    regions.items.map((region, index) => (
+                        <button
+                            type="button"
+                            role="tab"
+                            id={`region-tab-${region.id}`}
+                            aria-controls={`region-${region.id}`}
+                            aria-selected={index === 0 ? 'true' : 'false'}
+                            tabindex={index === 0 ? 0 : -1}
+                            class="min-h-12 border-2 border-navy px-4 py-2 font-medium transition-colors duration-200 hover:bg-navy/10 aria-selected:bg-navy aria-selected:text-ivory-light"
+                            data-region-tab
+                        >
+                            {region.label}
+                        </button>
+                    ))
+                }
+            </div>
+
+            {
+                regions.items.map((region) => (
+                    <div
+                        id={`region-${region.id}`}
+                        role="tabpanel"
+                        aria-labelledby={`region-tab-${region.id}`}
+                        class="mt-10 max-w-[44rem]"
+                        data-region-panel
+                    >
+                        <h3 class="h3">{region.heading}</h3>
+                        <div class="prose-je mt-5">
+                            {region.paragraphs.map((paragraph) => (
+                                <p set:html={paragraph} />
+                            ))}
+                        </div>
+                        <div class="mt-8 border-l-4 border-coral pl-5">
+                            <h4 class="font-medium">{regions.documentsHeading}</h4>
+                            <p class="mt-2">{region.documents}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </Section>
+
+    <Section tone="navy">
+        <h2 id="what-does-your-center-need-to-know" class="h2">{contact.heading}</h2>
+        <p class="mt-5 max-w-[36rem]">{contact.text}</p>
+        <LinkRow links={[contact.link]} tone="ivory" class="mt-8" />
     </Section>
 </BaseLayout>
+
+<script>
+    // Without JavaScript every region is shown in turn; with it, one region shows at a time (UK first).
+    for (const picker of document.querySelectorAll<HTMLElement>('[data-region-picker]')) {
+        const tabList = picker.querySelector<HTMLElement>('[data-region-tabs]');
+        const tabs = [...picker.querySelectorAll<HTMLButtonElement>('[data-region-tab]')];
+        const panels = [...picker.querySelectorAll<HTMLElement>('[data-region-panel]')];
+
+        const select = (index: number, focus = false) => {
+            tabs.forEach((tab, tabIndex) => {
+                const isSelected = tabIndex === index;
+                tab.setAttribute('aria-selected', String(isSelected));
+                tab.tabIndex = isSelected ? 0 : -1;
+                panels[tabIndex].hidden = !isSelected;
+            });
+            if (focus) {
+                tabs[index].focus();
+            }
+        };
+
+        tabList?.classList.replace('hidden', 'flex');
+        select(0);
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => select(index));
+            tab.addEventListener('keydown', (event) => {
+                const keys: Record<string, number> = {
+                    ArrowRight: (index + 1) % tabs.length,
+                    ArrowLeft: (index - 1 + tabs.length) % tabs.length,
+                    Home: 0,
+                    End: tabs.length - 1,
+                };
+                if (event.key in keys) {
+                    event.preventDefault();
+                    select(keys[event.key], true);
+                }
+            });
+        });
+    }
+</script>

@@ -1,0 +1,5 @@
+Contact: mailto:hello@joyfuleffort.com
+Expires: 2027-10-28T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://joyfuleffort.com/.well-known/security.txt
+Policy: https://joyfuleffort.com/trust-center#security-and-reliability
