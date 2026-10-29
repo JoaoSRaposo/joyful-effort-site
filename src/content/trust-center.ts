@@ -170,8 +170,8 @@ export const trustCenter = {
                     question: 'Can we access, export or delete our data?',
                     answer: [
                         '<strong>Exporting your center’s records.</strong> Your staff can export registrations, with each participant’s details and attendance, from Joyma at any time. If you need anything else, such as membership or payment records, ask us and we’ll provide it.',
-                        '<strong>Practitioners’ own accounts.</strong> Anyone can see their details and registrations in their Joyma account, and can delete their account themselves from their settings. Deleting an account doesn’t delete the records a center keeps about its own activities, such as past registrations; those are the center’s to manage. To get a copy of their information or ask for anything else, practitioners can contact the center or us.',
                         '<strong>If your center leaves Joyma.</strong> You’ll have time to export your records before your account closes, and we’ll then delete your center’s information, except anything we’re legally required to keep. The exact periods will be set out in the terms for centers, which are in legal review.',
+                        '<strong>Practitioners’ own accounts.</strong> Anyone can see their details and registrations in their Joyma account, and can delete their account themselves from their settings. Deleting an account doesn’t delete the records a center keeps about its own activities, such as past registrations; those are the center’s to manage. To get a copy of their information or ask for anything else, practitioners can contact the center or us.',
                     ],
                 },
                 {
