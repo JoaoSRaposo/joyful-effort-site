@@ -5,7 +5,6 @@ import HandFrame from '@/components/HandFrame.astro';
 import HandRule from '@/components/HandRule.astro';
 import Illustration from '@/components/Illustration.astro';
 import LinkRow from '@/components/LinkRow.astro';
-import PreviewBanner from '@/components/PreviewBanner.astro';
 import Section from '@/components/Section.astro';
 import SplitHero from '@/components/SplitHero.astro';
 import TextBlock from '@/components/TextBlock.astro';
@@ -19,10 +18,7 @@ const pageLinks = [...sections, regions];
 <BaseLayout
     title={trustCenter.heading}
     description="How Joyful Effort approaches security, privacy and reliable service for Joyma."
-    noindex
 >
-    <PreviewBanner label={trustCenter.preview.label} text={trustCenter.preview.text} />
-
     <SplitHero heading={hero.heading} highlight={hero.highlight} paragraphs={hero.paragraphs}>
         <HandFrame slot="media" offset variant={2} class="bg-sunshine">
             <div class="flex aspect-[4/3] items-center justify-center p-10">

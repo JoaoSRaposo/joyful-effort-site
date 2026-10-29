@@ -1,6 +1,5 @@
 ---
 import LinkRow from '@/components/LinkRow.astro';
-import PreviewBanner from '@/components/PreviewBanner.astro';
 import Section from '@/components/Section.astro';
 import TextBlock from '@/components/TextBlock.astro';
 import { trustCenter } from '@/content/trust-center';
@@ -13,10 +12,7 @@ const { columns } = providers;
 <BaseLayout
     title={providers.heading}
     description="The service providers that can handle information from Joyma, what they do and where."
-    noindex
 >
-    <PreviewBanner label={trustCenter.preview.label} text={trustCenter.preview.text} />
-
     <Section tone="light">
         <TextBlock
             eyebrow={trustCenter.heading}

@@ -71,10 +71,6 @@ const dpaInReview = 'Center Data Processing Agreement — in legal review, curre
 
 export const trustCenter = {
     heading: 'Trust Center',
-    preview: {
-        label: 'Preview',
-        text: 'This page is under review and isn’t published yet. Please don’t share it beyond the people reviewing it.',
-    },
     hero: {
         heading: 'Care for your work. Care for your information.',
         highlight: 'information.',
