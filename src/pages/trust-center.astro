@@ -106,6 +106,22 @@ const pageLinks = [...sections, regions];
                                 <p set:html={paragraph} />
                             ))}
                         </div>
+                        {region.certification && (
+                            <div class="mt-8 flex flex-col gap-5 sm:flex-row sm:items-start">
+                                <img
+                                    src={region.certification.image.src}
+                                    alt={region.certification.image.alt}
+                                    width="87"
+                                    height="100"
+                                    loading="lazy"
+                                    class="shrink-0"
+                                />
+                                <div>
+                                    <p>{region.certification.text}</p>
+                                    <LinkRow links={[region.certification.link]} allText class="mt-4" />
+                                </div>
+                            </div>
+                        )}
                         <div class="mt-8 border-l-4 border-coral pl-5">
                             <h4 class="font-medium">{regions.documentsHeading}</h4>
                             <p class="mt-2">{region.documents}</p>

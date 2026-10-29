@@ -25,7 +25,14 @@ export interface TrustRegion {
     label: string;
     heading: string;
     paragraphs: string[];
+    certification?: TrustCertification;
     documents: string;
+}
+
+export interface TrustCertification {
+    text: string;
+    image: { src: string; alt: string };
+    link: SiteLink;
 }
 
 export interface TrustProvider {
@@ -39,6 +46,15 @@ const legalReview =
     'We’re finalizing our legal documents with our lawyers. This page reflects how Joyma works today and how we intend to handle your information, but some details may change as that review completes. We’ll update this page when it does.';
 
 const certificateSearch = 'https://iasme.co.uk/cyber-essentials/ncsc-certificate-search/';
+
+const cyberEssentials: TrustCertification = {
+    text: 'Joyful Effort holds Cyber Essentials certification, a cybersecurity standard established by the UK government to help organizations protect against cyber threats. It covers five core areas: firewalls, secure configuration, security updates, access control and malware protection. These safeguards provide practical security measures relevant to the centers and communities we serve worldwide, including in the UK, EU and North America.',
+    image: {
+        src: '/images/trust/cyber-essentials-certified.png',
+        alt: 'Cyber Essentials Certified',
+    },
+    link: { label: 'Verify the certificate', href: certificateSearch },
+};
 
 const sameStandards =
     '<strong>Same standards everywhere.</strong> Centers here get the same protections as every other Joyma center: separate records for each center, exports, security, and prompt notice if something goes wrong.';
@@ -65,7 +81,7 @@ export const trustCenter = {
         paragraphs: [
             'Choosing software means entrusting it with part of your center’s everyday work—and the information your community shares with you. Here you can explore Joyful Effort’s approach to security, privacy and reliable service, and find the information your team needs to assess Joyma.',
         ],
-        lastUpdated: 'Last updated 28 October 2026',
+        lastUpdated: 'Last updated 29 October 2026',
         notice: legalReview,
     },
     sections: [
@@ -175,7 +191,8 @@ export const trustCenter = {
                 {
                     question: 'How does AI fit into Joyma?',
                     answer: [
-                        '<strong>Joyma doesn’t use AI.</strong> There are no AI features in Joyma, and your center’s information and practitioners’ details aren’t sent to AI services or used to train AI models.',
+                        '<strong>Joyma does not currently use AI.</strong> Future AI integrations are on our roadmap, with ethics, safety and privacy guiding their development. Before introducing any AI features, we’ll explain how they work and update all relevant policies.',
+                        'We will never use your center’s information or practitioners’ personal data to train AI models, or allow our AI providers to do so.',
                     ],
                 },
             ],
@@ -267,8 +284,8 @@ export const trustCenter = {
                     '<strong>Law.</strong> For centers in the UK, Joyma is designed to support your obligations under UK GDPR and the Data Protection Act 2018. Your center remains the controller for its own records, and Joyful Effort processes them for you under our data processing agreement.',
                     '<strong>Where your data is.</strong> Your center’s information is stored in the European Union (Finland). The UK recognizes the EU as providing adequate protection, so no extra safeguards are needed for storage there.',
                     '<strong>Access from outside the UK and EU.</strong> Joyful Effort is based in the United States, and some of our providers operate outside the UK and EU. Our technical team works from the EU. Where your information can be accessed from outside the UK and EU, we’re putting the transfer safeguards UK law requires in place with our lawyers, such as the UK International Data Transfer Agreement.',
-                    '<strong>Assurance.</strong> Joyful Effort is certified under Cyber Essentials, the UK government-backed scheme.',
                 ],
+                certification: cyberEssentials,
                 documents: `Center Data Processing Agreement, including UK transfer terms — in legal review, current draft on request. Cyber Essentials certificate — verify under Policies & assurance. ${sharedDocuments}`,
             },
             {
@@ -281,6 +298,7 @@ export const trustCenter = {
                     '<strong>Access from outside the EU.</strong> Joyful Effort is based in the United States, and some of our providers operate outside the EU. Where your information can be accessed from there, we’re putting the safeguards the GDPR requires in place with our lawyers, such as the EU Standard Contractual Clauses.',
                     '<strong>Language.</strong> Joyma is available in English and French.',
                 ],
+                certification: cyberEssentials,
                 documents: `Center Data Processing Agreement, including EU transfer terms — in legal review, current draft on request. ${sharedDocuments}`,
             },
             {
@@ -333,7 +351,7 @@ export const trustCenter = {
     },
     contact: {
         heading: 'What does your center need to know?',
-        text: 'Tell us what would help your team assess Joyma, or raise a question about the information on this page.',
+        text: 'Need more details? We’d love to hear from you.',
         link: { label: 'Ask us about Joyma', href: mailto('Trust Center question') },
     },
     providers: {
