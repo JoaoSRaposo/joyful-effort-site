@@ -1,0 +1,81 @@
+---
+import LinkRow from '@/components/LinkRow.astro';
+import Section from '@/components/Section.astro';
+import TextBlock from '@/components/TextBlock.astro';
+import { trustCenter } from '@/content/trust-center';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const { providers } = trustCenter;
+const { columns } = providers;
+---
+
+<BaseLayout
+    title={providers.heading}
+    description="The service providers that can handle information from Joyma, what they do and where."
+>
+    <Section tone="light">
+        <TextBlock
+            eyebrow={trustCenter.heading}
+            heading={providers.heading}
+            level="h1"
+            paragraphs={providers.intro}
+            class="max-w-[44rem]"
+        />
+        <p class="mt-4 text-sm font-medium">{providers.lastUpdated}</p>
+
+        <table class="mt-10 hidden w-full border-collapse text-left md:table">
+            <thead>
+                <tr class="border-b-2 border-navy">
+                    <th scope="col" class="py-3 pr-6 font-medium">{columns.name}</th>
+                    <th scope="col" class="py-3 pr-6 font-medium">{columns.purpose}</th>
+                    <th scope="col" class="py-3 pr-6 font-medium">{columns.information}</th>
+                    <th scope="col" class="py-3 font-medium">{columns.location}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    providers.items.map((provider) => (
+                        <tr class="border-b border-navy/30 align-top">
+                            <th scope="row" class="py-4 pr-6 font-medium">{provider.name}</th>
+                            <td class="py-4 pr-6">{provider.purpose}</td>
+                            <td class="py-4 pr-6">{provider.information}</td>
+                            <td class="py-4">{provider.location}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+        </table>
+
+        <ul class="mt-10 md:hidden">
+            {
+                providers.items.map((provider) => (
+                    <li class="border-b border-navy/30 py-5 first:border-t-2 first:border-t-navy">
+                        <h2 class="text-lg font-medium">{provider.name}</h2>
+                        <dl class="mt-3 grid gap-3">
+                            <div>
+                                <dt class="text-sm font-medium">{columns.purpose}</dt>
+                                <dd>{provider.purpose}</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium">{columns.information}</dt>
+                                <dd>{provider.information}</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium">{columns.location}</dt>
+                                <dd>{provider.location}</dd>
+                            </div>
+                        </dl>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <div class="mt-14 max-w-[44rem]">
+            <h2 id="separate-from-our-providers" class="h3">{providers.separateHeading}</h2>
+            <div class="prose-je mt-5">
+                {providers.separate.map((paragraph) => <p set:html={paragraph} />)}
+            </div>
+            <LinkRow links={[providers.backLink]} allText class="mt-8" />
+        </div>
+    </Section>
+</BaseLayout>
