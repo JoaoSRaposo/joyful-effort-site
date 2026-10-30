@@ -1,0 +1,147 @@
+---
+import Button from '@/components/Button.astro';
+import HandFrame from '@/components/HandFrame.astro';
+import Illustration from '@/components/Illustration.astro';
+import LinkRow from '@/components/LinkRow.astro';
+import PreviewBanner from '@/components/PreviewBanner.astro';
+import Section from '@/components/Section.astro';
+import SplitHero from '@/components/SplitHero.astro';
+import StoryRow from '@/components/StoryRow.astro';
+import TextBlock from '@/components/TextBlock.astro';
+import { joymaServices } from '@/content/joyma-services';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const { hero, overview, payments, moodle, zoom, contact } = joymaServices;
+const { setup, existingAccount, participants, money } = payments;
+---
+
+<BaseLayout
+    title={joymaServices.heading}
+    description="The services that work alongside Joyma: Stripe for payments, Moodle for online courses and Zoom for online sessions."
+    noindex
+>
+    <PreviewBanner label={joymaServices.preview.label} text={joymaServices.preview.text} />
+
+    <SplitHero heading={hero.heading} highlight={hero.highlight} paragraphs={hero.paragraphs}>
+        <HandFrame slot="media" offset variant={2} class="bg-sunshine">
+            <div class="flex aspect-[4/3] items-center justify-center p-10">
+                <Illustration name="laptop-admin" class="max-w-[16rem]" loading="eager" />
+            </div>
+        </HandFrame>
+    </SplitHero>
+
+    <Section tone="warm">
+        <h2 id="what-youll-need" class="h2">{overview.heading}</h2>
+        <div class="mt-10 grid gap-10 md:grid-cols-3 lg:gap-8">
+            {
+                overview.items.map((item, index) => (
+                    <article class="flex flex-col">
+                        <div class="bg-ivory-light p-4">
+                            <HandFrame variant={index}>
+                                <div class="flex aspect-[4/3] items-center justify-center p-6">
+                                    <Illustration name={item.illustration} class="max-h-full max-w-[10rem]" />
+                                </div>
+                            </HandFrame>
+                        </div>
+                        <p class="eyebrow mt-6">{item.role}</p>
+                        <h3 class="h3 mt-2">{item.name}</h3>
+                        <p class="mt-3">{item.text}</p>
+                        <Button href={`#${item.id}`} variant="text" class="mt-2 self-start">
+                            {`More about ${item.name}`}
+                        </Button>
+                    </article>
+                ))
+            }
+        </div>
+    </Section>
+
+    <Section tone="light" id={payments.id} class="scroll-mt-20">
+        <TextBlock
+            eyebrow={payments.label}
+            heading={payments.heading}
+            paragraphs={payments.paragraphs}
+            class="max-w-[44rem]"
+        />
+
+        <div class="mt-14">
+            <h3 id="set-up-in-three-steps" class="h3">{setup.heading}</h3>
+            <p class="mt-3 max-w-[44rem]">{setup.intro}</p>
+            <ol class="mt-8 grid gap-8 md:grid-cols-3 md:gap-8">
+                {
+                    setup.steps.map((step, index) => (
+                        <li>
+                            <HandFrame variant={index} class="h-full bg-sunshine">
+                                <div class="p-6 md:p-8">
+                                    <p class="text-4xl font-medium text-coral" aria-hidden="true">
+                                        {index + 1}
+                                    </p>
+                                    <h4 class="mt-3 text-lg font-medium">
+                                        <span class="sr-only">{`Step ${index + 1}: `}</span>
+                                        {step.heading}
+                                    </h4>
+                                    <p class="mt-2">{step.text}</p>
+                                </div>
+                            </HandFrame>
+                        </li>
+                    ))
+                }
+            </ol>
+            <p class="mt-8">
+                {setup.help}{' '}
+                <a href={contact.link.href} class="font-medium underline underline-offset-4">Get in touch</a>.
+            </p>
+
+            <div class="mt-10 max-w-[44rem] border-l-4 border-sunshine pl-5">
+                <h4 id="already-use-stripe" class="text-lg font-medium">{existingAccount.heading}</h4>
+                <div class="prose-je mt-3">
+                    {existingAccount.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+                <h3 id="how-participants-pay" class="h3">{participants.heading}</h3>
+                <div class="prose-je mt-5">
+                    {participants.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+            </div>
+            <div>
+                <h3 id="where-the-money-goes" class="h3">{money.heading}</h3>
+                <ul class="relative mt-5">
+                    {
+                        money.items.map((item) => (
+                            <li class="border-l-4 border-coral py-1 pl-5 [&+&]:mt-5" set:html={item} />
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </Section>
+
+    <StoryRow
+        tone="warm"
+        id={moodle.id}
+        eyebrow={moodle.label}
+        heading={moodle.heading}
+        paragraphs={moodle.paragraphs}
+        illustration={moodle.illustration}
+        variant={0}
+    />
+
+    <StoryRow
+        reverse
+        id={zoom.id}
+        eyebrow={zoom.label}
+        heading={zoom.heading}
+        paragraphs={zoom.paragraphs}
+        illustration={zoom.illustration}
+        variant={1}
+    />
+
+    <Section tone="navy">
+        <h2 id="questions-about-setting-up" class="h2">{contact.heading}</h2>
+        <p class="mt-5 max-w-[36rem]">{contact.text}</p>
+        <LinkRow links={[contact.link]} tone="ivory" class="mt-8" />
+    </Section>
+</BaseLayout>
