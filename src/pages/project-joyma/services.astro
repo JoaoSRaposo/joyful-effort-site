@@ -12,7 +12,7 @@ import { joymaServices } from '@/content/joyma-services';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 const { hero, overview, payments, moodle, zoom, contact } = joymaServices;
-const { setup, participants, money } = payments;
+const { setup, existingAccount, participants, money } = payments;
 ---
 
 <BaseLayout
@@ -90,6 +90,13 @@ const { setup, participants, money } = payments;
                 {setup.help}{' '}
                 <a href={contact.link.href} class="font-medium underline underline-offset-4">Get in touch</a>.
             </p>
+
+            <div class="mt-10 max-w-[44rem] border-l-4 border-sunshine pl-5">
+                <h4 id="already-use-stripe" class="text-lg font-medium">{existingAccount.heading}</h4>
+                <div class="prose-je mt-3">
+                    {existingAccount.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+            </div>
         </div>
 
         <div class="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16">

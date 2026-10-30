@@ -86,6 +86,14 @@ export const joymaServices = {
             ] satisfies ServiceStep[],
             help: 'Stuck on a step? We’re happy to go through it with you.',
         },
+        existingAccount: {
+            heading: 'Already use Stripe?',
+            paragraphs: [
+                'You can keep your Stripe login. Follow the same three steps, and when Stripe’s onboarding asks for your email, use the one you already sign in to Stripe with and sign in when prompted.',
+                'Joyma’s account is then added to your login, next to the account you already have. Switch between them from the account menu at the top of your Stripe Dashboard.',
+                'Your existing account carries on as before, with its payments, customers and payouts. Payments made through Joyma go to the new account, so you can always see which came from Joyma.',
+            ],
+        },
         participants: {
             heading: 'How participants pay',
             paragraphs: [
