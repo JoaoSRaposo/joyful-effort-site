@@ -9,7 +9,10 @@ export default defineConfig({
     build: {
         format: 'file',
     },
-    integrations: [sitemap()],
+    // The Seeds hub is for the pilot centers only, so it stays out of the sitemap.
+    integrations: [
+        sitemap({ filter: (page) => !page.startsWith('https://joyfuleffort.com/seeds') }),
+    ],
     vite: {
         plugins: [tailwindcss()],
         build: {
