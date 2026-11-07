@@ -222,6 +222,7 @@ const canonical = new URL('/seeds', Astro.site);
   td{padding:14px 20px;border-top:1px solid var(--border);vertical-align:middle;color:var(--text-muted)}
   td strong{color:var(--foreground);font-weight:700}
   td .badge{margin-right:8px}
+  td.nw{white-space:nowrap}
   td code{
     background:var(--secondary);border-radius:7px;padding:3px 9px;font-size:13.5px;
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--secondary-foreground);
@@ -276,6 +277,7 @@ const canonical = new URL('/seeds', Astro.site);
       <a href="#testing">Test environment</a>
       <a href="#do">What to test</a>
       <a href="#questions">Your input</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#meetings">Previous sessions</a>
       <a href="#contact" class="accent">Contact</a>
     </nav>
@@ -289,12 +291,11 @@ const canonical = new URL('/seeds', Astro.site);
     <div class="wrap">
       <h1>Joyma Seeds</h1>
       <p class="sub">Hello, dear pilot centers. Thank you for everything you are contributing to this project &mdash; your time, insights, requests and feedback. That is what will make this platform useful for as many dharma centers as possible.</p>
-      <p class="sub prose"><strong>Lotus has a new name: Joyma.</strong> Same platform, same team, same Seeds program &mdash; only the name has changed. You can find it at <a href="https://joyma.co" target="_blank" rel="noopener">joyma.co</a>. Your test environment logins and the meeting link stay the same for now.</p>
-      <p class="sub prose"><strong>Chandrakirti Meditation Centre (New Zealand)</strong> has joined the cohort. The live sessions fall at night in New Zealand, so Chandrakirti follows along through the recordings. Five centers now, across three continents and both hemispheres.</p>
+      <p class="sub prose"><strong>Lotus has a new name: Joyma.</strong> Same platform, same team, same Seeds program &mdash; only the name has changed. You can find it at <a href="https://joyma.co" target="_blank" rel="noopener">joyma.co</a>. Your test environment logins stay the same; the monthly meeting has a <a href="#dates">new link</a> from December.</p>
       <p class="sub prose">Each monthly meeting is where we demo updates and new features. This page is your hub in between: <a href="#do">what to test</a>, and <a href="#questions">where we still need your input</a>, so your feedback can go on that month's list and be built &mdash; or at least addressed &mdash; when we meet next. You'll also find meeting times, past presentations, and how to get in.</p>
       <span class="stamp">
         <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
-        Updated 25 October 2026 &mdash; Lotus is now Joyma
+        Updated 7 November 2026
       </span>
     </div>
   </div>
@@ -314,18 +315,17 @@ const canonical = new URL('/seeds', Astro.site);
         <span class="tz"><b>09:00</b> Santa Fe</span>
       </div>
 
-      <p class="note prose">With Chandrakirti joining, this slot falls in the small hours in New Zealand. We are reviewing the time before Session 5 &mdash; tell us in the <a href="https://galaxy.metaprovide.org/call/xzfrt5aj" target="_blank" rel="noopener">Seeds channel</a> what works for you, and we will record every session either way.</p>
+      <p class="note prose">With Chandrakirti joining, this slot falls in the small hours in New Zealand. We are still reviewing the time &mdash; tell us in the <a href="https://galaxy.metaprovide.org/call/xzfrt5aj" target="_blank" rel="noopener">Seeds channel</a> what works for you, and we will record every session either way.</p>
 
       <div class="actions meet-join">
-        <a class="btn solid" href="http://greet.metaprovide.org/lotus-seeds" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> greet.metaprovide.org/lotus-seeds</a>
+        <a class="btn solid" href="https://greet.metaprovide.org/joyma-seeds" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> greet.metaprovide.org/joyma-seeds</a>
       </div>
 
       <div class="tw">
         <table>
           <thead><tr><th>Session</th><th>Date</th></tr></thead>
           <tbody>
-            <tr><td><span class="badge solid">Next</span> Session 5</td><td><strong>Wednesday 4 November 2026</strong></td></tr>
-            <tr><td>Session 6</td><td><strong>Wednesday 2 December 2026</strong></td></tr>
+            <tr><td><span class="badge solid">Next</span> Session 6</td><td><strong>Wednesday 2 December 2026</strong></td></tr>
             <tr><td>Session 7</td><td><strong>Wednesday 6 January 2027</strong></td></tr>
             <tr><td>Session 8</td><td><strong>Wednesday 3 February 2027</strong></td></tr>
           </tbody>
@@ -340,8 +340,8 @@ const canonical = new URL('/seeds', Astro.site);
       <header class="sechead">
         <div class="eyebrow"><span class="secnum">2</span><h2>Test environment</h2></div>
         
-        <p class="sub prose"><a href="https://stage.joyfuleffort.com/admin" target="_blank" rel="noopener">stage.joyfuleffort.com/admin</a> is where you work.</p>
-        <p class="sub prose"><a href="https://stage.joyfuleffort.com/" target="_blank" rel="noopener">stage.joyfuleffort.com</a> is what participants will see.</p>
+        <p class="sub prose"><a href="https://stage.joyma.co/admin" target="_blank" rel="noopener">stage.joyma.co/admin</a> is where you work.</p>
+        <p class="sub prose"><a href="https://stage.joyma.co/" target="_blank" rel="noopener">stage.joyma.co</a> is what participants will see.</p>
         <p class="sub prose">This is a safe environment to experiment. It is not connected to the outside world &mdash; payments and registration confirmations are pretend.</p>
       </header>
 
@@ -376,33 +376,14 @@ const canonical = new URL('/seeds', Astro.site);
         
       </header>
 
-      <div class="grid g3">
-        <div class="card">
-          <div class="body">
-            <div class="badges"><span class="badge solid">1</span><span class="badge soft">Events</span></div>
-            <h3>Create an event, and register for it</h3>
-            <p>Create an event you actually run: real sessions, teacher, capacity and prices. Then register for it yourself, as a participant would, all the way through.</p>
-            <p>Then change it after booking and read the change summary. <strong>Does it match what you meant to change? Where did you have to guess?</strong></p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="body">
-            <div class="badges"><span class="badge solid">2</span><span class="badge soft">Memberships</span></div>
-            <h3>Create a membership type</h3>
-            <p>Build the membership you would actually offer: real tier names, prices, and which events and courses each tier gives access to. Publish it, then join it yourself.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="body">
-            <div class="badges"><span class="badge solid">3</span><span class="badge soft">Payments</span></div>
-            <h3>Make a test payment</h3>
-            <p>Pay for your registration and your membership at checkout. Nothing is really charged: click the small <strong>Stripe button at the bottom right</strong> of the checkout page and choose the successful Visa test card (4242).</p>
-            <p>Your center first connects its Stripe account from the admin. <strong>If you need a hand with that, ping Jo&atilde;o</strong> and we will set it up together.</p>
-          </div>
+      <div class="card sand">
+        <div class="body">
+          <div class="badges"><span class="badge sand">Paused</span></div>
+          <h3>Structured testing is paused while we work on UX</h3>
+          <p>Maile, our UI/UX designer, is redesigning the admin experience first &mdash; creating events and memberships &mdash; and then the participant side. Testing those screens now would mean testing something that is about to change.</p>
+          <p>Instead, tell us <strong>your main pain points</strong> in <a href="#questions">Your input</a>. The one thing still worth trying is <strong>checkout and Stripe</strong> &mdash; that is your easiest way to start taking payments.</p>
         </div>
       </div>
-
-      <p class="note prose">Then send what you noticed via the <a href="https://feedback.joyfuleffort.com/" target="_blank" rel="noopener">feedback form</a>.</p>
     </div>
   </section>
 
@@ -416,23 +397,24 @@ const canonical = new URL('/seeds', Astro.site);
       </header>
 
       <div class="topic">
-        <div class="subhead">Event creation</div>
-        <div class="card">
+        <div class="subhead">Your main pain points</div>
+        <div class="card tint">
           <div class="body">
-            <h4>Where does it still hurt?</h4>
-            <p>We heard that creating an event is hard, and we are working on it: clearer errors, a summary before you create, duplicating an event, and possibly templates. <strong>Where do you still get stuck or have to guess?</strong></p>
-            <p>The first step asks two things at once &mdash; one session or several, and once or repeating. <strong>Which events of yours are hard to fit into those choices?</strong> For example, a class on Mondays and Wednesdays every week.</p>
+            <h3>What is the one big thing?</h3>
+            <p>Tell us your main pain points with Joyma so far. <strong>If you have a very specific or very big need &mdash; the main change that would make the software work for your center &mdash; let us know what it is</strong>, so we can factor it in.</p>
+            <p>Everything you send here goes to Maile for the UX work, and we will make sure it is included.</p>
           </div>
         </div>
       </div>
 
       <div class="topic">
-        <div class="subhead">Payments</div>
+        <div class="subhead">Payments &middot; priority</div>
         <div class="card">
           <div class="body">
-            <h4>Checkout and Stripe</h4>
-            <p>When you made your test payment: <strong>was anything at checkout unclear, slow, or not trustworthy?</strong> Whatever confuses you will confuse your participants.</p>
-            <p>Did connecting your center&rsquo;s Stripe account go smoothly? <strong>Who at your center manages Stripe</strong>, so we know who to help?</p>
+            <h4>Test checkout and Stripe</h4>
+            <p>This is the most useful thing to test right now: it is your easy way to start taking payments. Connect your center&rsquo;s Stripe test account from the admin, then pay for a registration at checkout. Nothing is really charged: click the small <strong>Stripe button at the bottom right</strong> of the checkout page and choose the successful Visa test card (4242).</p>
+            <p><strong>Was anything at checkout unclear, slow, or not trustworthy?</strong> Whatever confuses you will confuse your participants.</p>
+            <p>No center has connected its Stripe account yet. <strong>Who at your center manages Stripe, and what is in the way?</strong> If you need a hand, ping Jo&atilde;o and we will set it up together.</p>
           </div>
         </div>
       </div>
@@ -448,37 +430,54 @@ const canonical = new URL('/seeds', Astro.site);
         </div>
       </div>
 
-      <div class="topic">
-        <div class="subhead">Membership</div>
-        <div class="card">
-          <div class="body">
-            <h4>What is built, and what is next</h4>
-            <p>Today, Joyma memberships are based on <strong>access</strong>: a membership gives access to <strong>events, courses, or both</strong>. Members register for free for anything included in their plan. That is what Joyma does today &mdash; please test it.</p>
-            <p>Memberships do <strong>not</strong> offer discounts yet, on events or on anything else. Some centers need more than access: Chandrakirti&rsquo;s membership includes things like <strong>one free class a week</strong> or <strong>one free retreat a year</strong>, and other centers may need a discount, such as <strong>10% off events</strong>. We do not support these yet, and your answers decide what we build next.</p>
-            <p><strong>What does your center's membership need to do beyond access?</strong></p>
-
-            <h4>Changing membership terms</h4>
-            <p>When you raise a price or change what is included, <strong>what should happen to people who already joined?</strong> Stay where they are indefinitely, move at their next renewal, or be asked?</p>
-            <p>How much notice should they get before a change takes effect?</p>
-
-            <h4>Your back office</h4>
-            <p>Center staff will be able to activate, pause, resume and cancel a membership.</p>
-            <p>Participants are able to renew, upgrade, and change payment details for their own membership.</p>
-            <p>Center staff can now also issue a refund, full or partial. Cancel is on the staff list because people often phone the office instead of doing it themselves.</p>
-            <p><strong>Does center staff need to do anything else for a member?</strong> For example: change payment details, upgrade them after a conversation, or extend a membership. If staff currently have to do it, we need to know.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="callout"><strong>And one for Jamyang:</strong> your Calm Abiding and Special Insight students are already enrolled and paying. When memberships arrive, what should they be offered?</div>
     </div>
   </section>
 
-  <!-- ============ 05 · PREVIOUS SESSIONS ============ -->
-  <section class="band" id="meetings">
+  <!-- ============ 05 · ROADMAP ============ -->
+  <section class="band" id="roadmap">
     <div class="wrap">
       <header class="sechead">
-        <div class="eyebrow"><span class="secnum">5</span><h2>Previous sessions</h2></div>
+        <div class="eyebrow"><span class="secnum">5</span><h2>Roadmap</h2></div>
+        <p class="sub">What we have built together so far, and what comes next. The order of the gates is the commitment; dates firm up as each gate before it closes.</p>
+      </header>
+
+      <div class="topic">
+        <div class="subhead">Delivered</div>
+        <div class="tw">
+          <table>
+            <thead><tr><th>Gate</th><th>Status</th><th>What it covers</th></tr></thead>
+            <tbody>
+              <tr><td class="nw"><strong>Gate A</strong></td><td class="nw"><span class="badge soft">Done</span></td><td><strong>Events &amp; registration</strong> &mdash; events, sessions, recurring events, registration and check-in.</td></tr>
+              <tr><td class="nw"><strong>Gate B</strong></td><td class="nw"><span class="badge soft">Done</span></td><td><strong>Courses &amp; members</strong> &mdash; Moodle with single sign-in, and the membership foundation.</td></tr>
+              <tr><td class="nw"><strong>Gate C</strong></td><td class="nw"><span class="badge soft">Done</span></td><td><strong>Memberships &amp; more</strong> &mdash; email, search, directories, self-service and the public pages.</td></tr>
+              <tr><td class="nw"><strong>Gate D</strong></td><td class="nw"><span class="badge soft">Done</span></td><td><strong>Payments &amp; security</strong> &mdash; the first version of payments and the security review.</td></tr>
+              <tr><td class="nw"><strong>Gate E</strong></td><td class="nw"><span class="badge soft">Done</span></td><td><strong>Payments closed</strong> &mdash; refunds, payment links, invoices and receipts; memberships rebuilt from your feedback; Study spaces.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="subhead">Coming next</div>
+        <div class="tw">
+          <table>
+            <thead><tr><th>Gate</th><th>Status</th><th>What it covers</th></tr></thead>
+            <tbody>
+              <tr><td class="nw"><strong>Gate F</strong></td><td class="nw"><span class="badge solid">December</span></td><td><strong>Your website, and how your teaching is organised</strong> &mdash; events on your own website, with registration and payment without leaving it; event types, categories, tags and a calendar view, shaped with Maile&rsquo;s design input.</td></tr>
+              <tr><td class="nw"><strong>Gate G</strong></td><td class="nw"><span class="badge">End of December</span></td><td><strong>Donations and privacy</strong> &mdash; donations, including an optional donation at checkout, and GDPR features: accepting terms, closing an account, getting a copy of your data.</td></tr>
+              <tr><td class="nw"><strong>Later</strong></td><td class="nw"><span class="badge">On the list</span></td><td>Study programmes, duplicating events and templates, importing existing data, network-wide search, and a mobile app.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 · PREVIOUS SESSIONS ============ -->
+  <section class="band band--alt" id="meetings">
+    <div class="wrap">
+      <header class="sechead">
+        <div class="eyebrow"><span class="secnum">6</span><h2>Previous sessions</h2></div>
         
         <p class="sub">Go back to any session whenever you need it. The slides are the quick reference; the recordings have the conversation.</p>
       </header>
@@ -535,7 +534,7 @@ const canonical = new URL('/seeds', Astro.site);
         <div class="card">
           <div class="media"><img src="/images/seeds/joyma-mark.png" alt=""></div>
           <div class="body">
-            <div class="badges"><span class="badge soft">Session 4</span><span class="badge sand">Most recent</span></div>
+            <div class="badges"><span class="badge soft">Session 4</span><span class="badge">Payments</span></div>
             <h3>Payments arrive</h3>
             <p>The first version of payments and Stripe setup, memberships consolidated, a smoother Moodle, event creation, and the gates ahead.</p>
             <div class="meta">
@@ -547,15 +546,31 @@ const canonical = new URL('/seeds', Astro.site);
             </div>
           </div>
         </div>
+
+        <div class="card">
+          <div class="media"><img src="/images/seeds/joyma-mark.png" alt=""></div>
+          <div class="body">
+            <div class="badges"><span class="badge soft">Session 5</span><span class="badge sand">Most recent</span></div>
+            <h3>Payments closed, and a new name</h3>
+            <p>Payments finished, memberships rebuilt from your feedback, Study spaces, Lotus becoming Joyma, Maile joining on UX, and the roadmap ahead.</p>
+            <div class="meta">
+              <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> 4 November 2026</div>
+            </div>
+            <div class="actions">
+              <a class="btn solid" href="https://feedback.joyfuleffort.com/joyma-seeds-session5-2026-11-04-presenter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg> Slides</a>
+              <a class="btn" href="https://galaxy.metaprovide.org/s/oNzPbi3kk2irnT9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M5 4l14 8-14 8z"/></svg> Recording</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 06 · CONTACT ============ -->
-  <section class="band band--alt" id="contact">
+  <!-- ============ 07 · CONTACT ============ -->
+  <section class="band" id="contact">
     <div class="wrap">
       <header class="sechead">
-        <div class="eyebrow"><span class="secnum">6</span><h2>Contact</h2></div>
+        <div class="eyebrow"><span class="secnum">7</span><h2>Contact</h2></div>
         
         <p class="sub">You never need to wait for the next call. Most of what changes the build arrives between the meetings &mdash; four of the six items we shipped in August came in that way.</p>
       </header>
@@ -593,6 +608,14 @@ const canonical = new URL('/seeds', Astro.site);
             <div class="actions"><a class="btn" href="mailto:joao.raposo@metaprovide.org">joao.raposo@metaprovide.org</a></div>
           </div>
         </div>
+        <div class="card">
+          <div class="body">
+            <div class="badges"><span class="badge">UI &amp; UX design</span></div>
+            <h3>Maile</h3>
+            <p>Anything about how Joyma looks and feels to use &mdash; where you get stuck, what you have to guess, what would make your day easier. Maile may also reach out to your center directly.</p>
+            <div class="actions"><a class="btn" href="https://feedback.joyfuleffort.com/" target="_blank" rel="noopener">Send UX feedback</a></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -604,7 +627,7 @@ const canonical = new URL('/seeds', Astro.site);
     <img class="mark" src="/images/seeds/joyma-mark.png" alt="">
     <strong style="color:var(--foreground)">Joyma Seeds</strong> &middot; the centers who shape Joyma while we build it<br>
     Jamyang &middot; IVY &middot; Shantideva &middot; Thubten Norbu Ling &middot; Chandrakirti<br>
-    <a href="https://stage.joyfuleffort.com" target="_blank" rel="noopener">stage.joyfuleffort.com</a> &middot;
+    <a href="https://stage.joyma.co" target="_blank" rel="noopener">stage.joyma.co</a> &middot;
     <a href="https://feedback.joyfuleffort.com/" target="_blank" rel="noopener">feedback</a> &middot;
     <a href="https://galaxy.metaprovide.org/call/xzfrt5aj" target="_blank" rel="noopener">Galaxy channel</a>
   </div>
