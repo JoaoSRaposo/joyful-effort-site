@@ -27,6 +27,7 @@ export const routes = {
     projectJoyma: '/project-joyma',
     fundingAndCosts: '/project-joyma#funding-and-costs',
     faq: '/project-joyma#faq',
+    joymaServices: '/project-joyma/services',
     roadmap: '/roadmap',
     trustCenter: '/trust-center',
     trustCenterProviders: '/trust-center/providers',
@@ -68,6 +69,7 @@ export const footer = {
             links: [
                 { label: 'Explore Joyma', href: routes.projectJoyma },
                 { label: 'Funding and costs', href: routes.fundingAndCosts },
+                { label: 'Services that work with Joyma', href: routes.joymaServices },
                 { label: 'Roadmap and feedback', href: routes.roadmap },
                 { label: 'Frequently asked questions', href: routes.faq },
                 { label: 'Inquire about Joyma', href: routes.centerInquiry },
